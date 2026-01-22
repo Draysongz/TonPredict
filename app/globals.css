@@ -10,6 +10,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* TON Predict colors */
+  --color-primary: #C3FF4D;
+  --color-background-light: #F8FAF4;
+  --color-background-dark: #0A1F11;
+  --color-surface-dark: #122D1C;
+  --color-glass-dark: rgba(255, 255, 255, 0.05);
+  
+  /* Custom border radius */
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+  --radius-default: 12px;
+  
+  /* Border radius default */
+  --radius: var(--radius-default);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +35,39 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', var(--font-geist-sans), 'Plus Jakarta Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  min-height: max(884px, 100dvh);
+  background-color: var(--color-background-dark);
+  color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at top right, rgba(195, 255, 77, 0.15), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(195, 255, 77, 0.05), transparent 40%);
+}
+
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-gradient {
+  background: linear-gradient(to top, rgba(195, 255, 77, 0), rgba(195, 255, 77, 0.2));
 }
