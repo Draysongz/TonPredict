@@ -71,3 +71,7 @@ body {
 .chart-gradient {
   background: linear-gradient(to top, rgba(195, 255, 77, 0), rgba(195, 255, 77, 0.2));
 }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

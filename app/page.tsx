@@ -203,27 +203,27 @@ export default function Home() {
       {/* Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
         <div className="flex items-center justify-between max-w-md mx-auto relative">
-          <button className="flex flex-col items-center gap-1 text-primary w-16">
+          <Link href="/" className="flex flex-col items-center gap-1 text-primary w-16">
             <span className="material-icons-round text-[24px]">explore</span>
             <span className="text-[10px] font-bold">Discover</span>
-          </button>
-          <button className="flex flex-col items-center gap-1 text-slate-400 w-16">
+          </Link>
+          <Link href="/reward" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">redeem</span>
             <span className="text-[10px] font-medium">Reward</span>
-          </button>
+          </Link>
           <div className="relative w-16 flex justify-center">
             <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark">
               <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
             </div>
           </div>
-          <button className="flex flex-col items-center gap-1 text-slate-400 w-16">
+          <Link href="/leaderboard" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">leaderboard</span>
             <span className="text-[10px] font-medium">Leaderboard</span>
-          </button>
-          <button className="flex flex-col items-center gap-1 text-slate-400 w-16">
+          </Link>
+          <Link href="/wallet" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">account_balance_wallet</span>
             <span className="text-[10px] font-medium">Wallet</span>
-          </button>
+          </Link>
         </div>
       </nav>
 
