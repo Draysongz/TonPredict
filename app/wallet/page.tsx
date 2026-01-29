@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { WalletButton } from "../components/WalletButton";
 
 export default function WalletPage() {
   return (
@@ -15,10 +16,7 @@ export default function WalletPage() {
           <h1 className="font-bold text-lg tracking-tight">TON Predict</h1>
         </div>
         <div className="flex items-center gap-2">
-          <div className="glass px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/10">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            <span className="text-[11px] font-mono text-slate-300">EQD4...3f8A</span>
-          </div>
+          <WalletButton />
           <button className="w-10 h-10 glass rounded-full flex items-center justify-center">
             <span className="material-icons-round text-xl">notifications_none</span>
           </button>
