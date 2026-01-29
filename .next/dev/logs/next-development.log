@@ -1,0 +1,2276 @@
+[00:00:02.460] Server  LOG     
+[00:00:02.460] Server  LOG       We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+[00:00:02.461] Server  LOG       The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:02.461] Server  LOG       	- lib was set to dom,dom.iterable,esnext
+[00:00:02.461] Server  LOG       	- allowJs was set to true
+[00:00:02.461] Server  LOG       	- noEmit was set to true
+[00:00:02.462] Server  LOG       	- incremental was set to true
+[00:00:02.462] Server  LOG       	- include was set to ['next-env.d.ts', '.next/types/**/*.ts', '.next/dev/types/**/*.ts', '**/*.mts', '**/*.ts', '**/*.tsx']
+[00:00:02.462] Server  LOG       	- plugins was updated to add { name: 'next' }
+[00:00:02.462] Server  LOG       	- exclude was set to ['node_modules']
+[00:00:02.463] Server  LOG     
+[00:00:02.463] Server  LOG       The following mandatory changes were made to your tsconfig.json:
+
+[00:00:02.463] Server  LOG       	- moduleResolution was set to node (to match webpack resolution)
+[00:00:02.463] Server  LOG       	- resolveJsonModule was set to true (to match webpack resolution)
+[00:00:02.463] Server  LOG       	- isolatedModules was set to true (requirement for SWC / Babel)
+[00:00:02.463] Server  LOG       	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+[00:00:02.463] Server  LOG     
+[00:00:02.891] Server  LOG     ✓ Ready in 2.1s
+[00:00:20.495] Server  LOG     ○ Compiling / ...
+[00:00:29.117] Server  ERROR   (node:93873) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[00:00:33.826] Browser INFO    Provider initialised
+[00:00:33.827] Browser INFO    Provider initialised
+[00:00:33.827] Browser INFO    Provider initialised
+[00:00:34.047] Browser INFO    TronLink initiated
+[00:00:43.809] Server  ERROR   TimeoutError: The operation was aborted due to timeout
+[00:00:53.955] Server  LOG     ○ Compiling /admin ...
+[00:00:54.467] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import { WalletButton } from "@/app/components/WalletButton";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AdminDashboardPage() {
+  10 |   async function handleSignOut() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "@/app/components/WalletButton";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:54.742] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import { WalletButton } from "@/app/components/WalletButton";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AdminDashboardPage() {
+  10 |   async function handleSignOut() {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:54.742] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:54.742] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "@/app/components/WalletButton";
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:57.611] Browser ERROR   uncaughtError: Error: ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import { WalletButton } from "@/app/components/WalletButton";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AdminDashboardPage() {
+  10 |   async function handleSignOut() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:58.017] Browser INFO    Provider initialised
+[00:00:58.018] Browser INFO    Provider initialised
+[00:00:58.018] Browser INFO    Provider initialised
+[00:00:58.018] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import { WalletButton } from "@/app/components/WalletButton";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AdminDashboardPage() {
+  10 |   async function handleSignOut() {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:58.018] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:58.018] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "@/app/components/WalletButton";
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:58.018] Browser INFO    TronLink initiated
+[00:00:58.718] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import { WalletButton } from "@/app/components/WalletButton";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AdminDashboardPage() {
+  10 |   async function handleSignOut() {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:58.718] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:58.718] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "@/app/components/WalletButton";
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:35.397] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import wallet
+     | ^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.400] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import wallet
+     | ^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.403] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import wallet
+     | ^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.405] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import wallet
+     | ^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.407] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.409] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.410] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.497] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.552] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import wallet
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.600] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import wallet
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.608] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import wallet
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:35.646] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import wallet
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:37.050] Browser ERROR   ./app/admin/page.tsx:9:1
+Parsing ecmascript source code failed
+   7 | import wallet
+   8 |
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Expected ',', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[00:01:37.050] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import wallet
+     | ^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:37.050] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:37.050] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import wallet
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:38.047] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbut
+     | ^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.055] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbut
+     | ^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.060] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbut
+     | ^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.100] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbut
+     | ^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.101] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.108] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.109] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.110] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.154] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbut
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.156] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbut
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.158] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbut
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.159] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbut
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:38.654] Browser ERROR   ./app/admin/page.tsx:9:1
+Parsing ecmascript source code failed
+   7 | import walletbut
+   8 |
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Expected ',', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[00:01:38.654] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbut
+     | ^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:38.654] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:38.654] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbut
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:40.744] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbutt
+     | ^^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.746] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbutt
+     | ^^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.749] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbutt
+     | ^^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.751] Server  ERROR   ⨯ ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbutt
+     | ^^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.752] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.754] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.756] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.758] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.759] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbutt
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.849] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbutt
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.852] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbutt
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:40.853] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbutt
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:41.655] Browser ERROR   ./app/admin/page.tsx:9:1
+Parsing ecmascript source code failed
+   7 | import walletbutt
+   8 |
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Expected ',', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[00:01:41.655] Browser ERROR   ./app/admin/page.tsx:7:1
+Module not found: Can't resolve '@/app/components/WalletButton'
+   5 | import { AdminNav } from "./components/AdminNav";
+   6 | import { signOut } from "firebase/auth";
+>  7 | import walletbutt
+     | ^^^^^^^^^^^^^^^^^
+>  8 |
+     | ^
+>  9 | export default function AdminDashboardPage() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 |   async function handleSignOut() {
+  11 |     const auth = getFirebaseAuth();
+  12 |     if (auth) {
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:41.655] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:41.655] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import walletbutt
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:41.950] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:41.955] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:41.959] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:41.960] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:42.100] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:42.109] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:42.247] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:42.248] Server  ERROR   ⨯ ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:42.655] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:42.655] Browser ERROR   ./app/admin/page.tsx:4:1
+Module not found: Can't resolve '@/lib/firebase'
+  2 |
+  3 | import Link from "next/link";
+> 4 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { AdminNav } from "./components/AdminNav";
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:56.794] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:56.796] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:56.799] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:56.799] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:57.653] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:08.548] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:10.675] Browser ERROR   uncaughtError: Error: ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:11.316] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:11.316] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:49.501] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:49.503] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:49.503] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:49.505] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:49.854] Browser ERROR   ./app/admin/page.tsx:5:1
+Parsing ecmascript source code failed
+  3 | import Link from "next/link";
+  4 | import getfir
+> 5 | import { AdminNav } from "./components/AdminNav";
+    | ^^^^^^
+  6 | import { signOut } from "firebase/auth";
+  7 | import { WalletButton } from "../components/WalletButton";
+  8 |
+
+Expected ',', got 'import'
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[00:02:49.854] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:50.694] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:50.695] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:50.697] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:50.698] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:51.556] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:55.654] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:57.900] Server  ERROR   ⨯ ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:01.883] Browser ERROR   uncaughtError: Error: ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:02.677] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:02.677] Browser ERROR   ./app/admin/layout.tsx:5:1
+Module not found: Can't resolve '@/lib/firebase'
+  3 | import { useEffect, useState } from "react";
+  4 | import { useRouter, usePathname } from "next/navigation";
+> 5 | import { getFirebaseAuth } from "@/lib/firebase";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { onAuthStateChanged } from "firebase/auth";
+  7 |
+  8 | export default function AdminLayout({
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/layout.tsx [Client Component Browser]
+    ./app/admin/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/layout.tsx [Client Component SSR]
+    ./app/admin/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:04:52.952] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:52.952] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/index.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:04:52.952] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:09.099] Server  LOG     ○ Compiling /admin/login ...
+[00:23:46.529] Server  LOG     ✓ Compiled in 352ms

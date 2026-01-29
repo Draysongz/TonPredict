@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { getFirebaseAuth } from "@/lib/firebase";
+import { getFirebaseAuth } from "../../lib/firebase";
 import { AdminNav } from "./components/AdminNav";
 import { signOut } from "firebase/auth";
-import { WalletButton } from "@/app/components/WalletButton";
+import { WalletButton } from "../components/WalletButton";
 
 export default function AdminDashboardPage() {
   async function handleSignOut() {

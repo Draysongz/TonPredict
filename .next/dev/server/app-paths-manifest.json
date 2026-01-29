@@ -1,0 +1,9 @@
+{
+  "/admin/deploy/page": "app/admin/deploy/page.js",
+  "/admin/history/page": "app/admin/history/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/markets/[id]/page": "app/admin/markets/[id]/page.js",
+  "/admin/markets/page": "app/admin/markets/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/page": "app/page.js"
+}

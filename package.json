@@ -9,11 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ton/core": "^0.63.0",
+    "@ton/crypto": "^3.3.0",
+    "@ton/ton": "^16.1.0",
     "@tonconnect/ui-react": "^2.3.1",
     "firebase": "^12.8.0",
     "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "ton": "^13.9.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
