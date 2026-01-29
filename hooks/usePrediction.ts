@@ -38,6 +38,18 @@ export function usePredictionFactory() {
                 resolutionTime: resolutionTime
             }
         )
+     },
+     changeAdmin: async(newAdmin: Address)=>{
+        factoryContract?.send(
+            sender,
+            {
+                value: toNano('0.05')
+            },
+            {
+                $$type: "ChangeAdmin",
+                newOwner: newAdmin
+            }
+        )
      }
   };
 }
