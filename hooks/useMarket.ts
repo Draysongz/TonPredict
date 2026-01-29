@@ -87,7 +87,7 @@ export function usePredictionFactory(marketAddress: string) {
             sender,
             {
                 value: toNano("0.05")
-            }
+            },
             {
                 $$type: "PauseMarket"
             }
@@ -98,7 +98,7 @@ export function usePredictionFactory(marketAddress: string) {
             sender,
             {
                 value: toNano("0.05")
-            }
+            },
             {
                 $$type: "ResumeMarket"
             }
@@ -148,8 +148,8 @@ export function usePredictionFactory(marketAddress: string) {
         let balance = marketContract?.getBalance()
         return balance
     },
-    getIsNonceUsed: async()=>{
-        let isNonceUsed= marketContract?.getIsNonceUsed()
+    getIsNonceUsed: async(nonce: bigint)=>{
+        let isNonceUsed= marketContract?.getIsNonceUsed(nonce)
         return isNonceUsed
     },
     getStartTime: async()=>{
