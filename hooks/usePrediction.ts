@@ -12,7 +12,7 @@ const sleep = (ms: number) => {
 export function usePredictionFactory() {
   const { sender, userAddress } = useTonConnect();
   const  client  = useTonClient();
-  const [spinLeft, setSpinLeft] = useState<number | undefined>(undefined);
+ 
 
   const factoryContract = useAsyncInitialize(async () => {
     if (!client) return;
