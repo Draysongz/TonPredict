@@ -6,14 +6,14 @@ import { WalletButton } from "../components/WalletButton";
 
 export default function WalletPage() {
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="material-icons-round text-background-dark text-lg">bolt</span>
+            <span className="material-icons-round text-white text-lg">bolt</span>
           </div>
-          <h1 className="font-bold text-lg tracking-tight">TON Predict</h1>
+          <h1 className="ton-heading text-lg tracking-tight">TON Predict</h1>
         </div>
         <div className="flex items-center gap-2">
           <WalletButton />
@@ -42,7 +42,7 @@ export default function WalletPage() {
 
         {/* Deposit/Withdraw Buttons */}
         <section className="grid grid-cols-2 gap-4 mb-10">
-          <button className="bg-primary text-background-dark py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+          <button className="bg-primary text-white py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
             <span className="material-icons-round">south_west</span>
             Deposit
           </button>
@@ -60,7 +60,7 @@ export default function WalletPage() {
           </div>
           <div className="space-y-3">
             {/* Transaction 1 */}
-            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-white/5">
+            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-slate-200">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="material-icons-round text-primary text-xl">trending_up</span>
@@ -71,13 +71,13 @@ export default function WalletPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-bold text-white">- 50.00 TON</p>
+                <p className="text-sm font-bold text-slate-900">- 50.00 TON</p>
                 <p className="text-[10px] text-slate-500">$337.50</p>
               </div>
             </div>
 
             {/* Transaction 2 */}
-            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-white/5">
+            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-slate-200">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
                   <span className="material-icons-round text-emerald-400 text-xl">emoji_events</span>
@@ -94,7 +94,7 @@ export default function WalletPage() {
             </div>
 
             {/* Transaction 3 */}
-            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-white/5">
+            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-slate-200">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
                   <span className="material-icons-round text-blue-400 text-xl">account_balance_wallet</span>
@@ -105,13 +105,13 @@ export default function WalletPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-bold text-white">+ 500.00 TON</p>
+                <p className="text-sm font-bold text-primary">+ 500.00 TON</p>
                 <p className="text-[10px] text-slate-500">$3,375.00</p>
               </div>
             </div>
 
             {/* Transaction 4 */}
-            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-white/5">
+            <div className="glass p-4 rounded-2xl flex items-center justify-between border border-slate-200">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="material-icons-round text-primary text-xl">trending_down</span>
@@ -122,7 +122,7 @@ export default function WalletPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-bold text-white">- 25.00 TON</p>
+                <p className="text-sm font-bold text-slate-900">- 25.00 TON</p>
                 <p className="text-[10px] text-slate-500">$168.75</p>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function WalletPage() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200">
         <div className="flex items-center justify-between max-w-md mx-auto relative">
           <Link href="/" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">explore</span>
@@ -142,8 +142,8 @@ export default function WalletPage() {
             <span className="text-[10px] font-medium">Reward</span>
           </Link>
           <div className="relative w-16 flex justify-center">
-            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark">
-              <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
+            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark">
+              <span className="material-icons-round text-white text-3xl font-bold">add</span>
             </div>
           </div>
           <Link href="/leaderboard" className="flex flex-col items-center gap-1 text-slate-400 w-16">

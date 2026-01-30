@@ -16,14 +16,14 @@ export default function LeaderboardPage() {
   ];
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="material-icons-round text-background-dark text-lg">bolt</span>
+            <span className="material-icons-round text-white text-lg">bolt</span>
           </div>
-          <h1 className="font-bold text-lg tracking-tight">TON Predict</h1>
+          <h1 className="ton-heading text-lg tracking-tight">TON Predict</h1>
         </div>
         <div className="flex items-center gap-2">
           <WalletButton />
@@ -36,7 +36,7 @@ export default function LeaderboardPage() {
       <main className="px-5 pt-24 pb-32">
         {/* Top 3 Podium */}
         <section className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-primary/80 mb-4 text-center">Top Traders</h2>
+          <h2 className="ton-label text-sm uppercase tracking-widest text-primary/80 mb-4 text-center">Top Traders</h2>
           <div className="flex items-end justify-center gap-3 mb-6">
             {/* 2nd Place */}
             <div className="flex-1 max-w-[100px]">
@@ -94,7 +94,7 @@ export default function LeaderboardPage() {
             {rankings.map((user, index) => (
               <div
                 key={user.rank}
-                className="glass p-4 rounded-2xl border border-white/5 flex items-center gap-3"
+                className="glass p-4 rounded-2xl border border-slate-200 flex items-center gap-3"
               >
                 <div className="flex items-center gap-3 flex-1 min-w-0">
                   <div className={`w-10 h-10 rounded-full ${user.color} border ${user.borderColor} flex items-center justify-center flex-shrink-0`}>
@@ -102,7 +102,7 @@ export default function LeaderboardPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-white truncate">{user.name}</p>
+                      <p className="text-sm font-semibold text-slate-900 truncate">{user.name}</p>
                       {user.rank <= 3 && (
                         <span className="material-icons-round text-xs text-primary">
                           {user.rank === 1 ? "emoji_events" : user.rank === 2 ? "workspace_premium" : "military_tech"}
@@ -133,7 +133,7 @@ export default function LeaderboardPage() {
                 <span className="text-primary font-bold">YO</span>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-semibold text-white">Your Wallet</p>
+                <p className="text-sm font-semibold text-slate-900">Your Wallet</p>
                 <p className="text-[10px] text-slate-500">EQD4...3f8A</p>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function LeaderboardPage() {
               </div>
               <div>
                 <p className="text-[10px] text-slate-400 mb-1">Win Rate</p>
-                <p className="text-lg font-bold text-white">68.5%</p>
+                <p className="text-lg font-bold text-slate-900">68.5%</p>
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function LeaderboardPage() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200">
         <div className="flex items-center justify-between max-w-md mx-auto relative">
           <Link href="/" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">explore</span>
@@ -163,8 +163,8 @@ export default function LeaderboardPage() {
             <span className="text-[10px] font-medium">Reward</span>
           </Link>
           <div className="relative w-16 flex justify-center">
-            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark">
-              <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
+            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark">
+              <span className="material-icons-round text-white text-3xl font-bold">add</span>
             </div>
           </div>
           <Link href="/leaderboard" className="flex flex-col items-center gap-1 text-primary w-16">

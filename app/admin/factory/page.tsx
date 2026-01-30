@@ -11,14 +11,14 @@ const deploymentLog = [
 
 export default function FactoryOverviewPage() {
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg selection:bg-primary selection:text-background-dark">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg selection:bg-primary selection:text-white">
       <header className="fixed top-0 left-0 right-0 z-50 px-5 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/10">
-            <span className="material-icons-round text-background-dark text-xl">precision_manufacturing</span>
+            <span className="material-icons-round text-white text-xl">precision_manufacturing</span>
           </div>
           <div>
-            <h1 className="font-bold text-lg tracking-tight">Factory Overview</h1>
+            <h1 className="ton-heading text-lg tracking-tight">Factory Overview</h1>
             <p className="text-[10px] uppercase tracking-widest text-primary/70 font-bold">Admin Console</p>
           </div>
         </div>
@@ -41,8 +41,8 @@ export default function FactoryOverviewPage() {
                   ACTIVE
                 </span>
               </div>
-              <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
-                <code className="text-xs font-mono text-slate-200">EQA7...9Zk2</code>
+              <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-white/5">
+                <code className="text-xs font-mono text-slate-600">EQA7...9Zk2</code>
                 <button type="button" className="text-primary hover:opacity-80">
                   <span className="material-icons-round text-sm">content_copy</span>
                 </button>
@@ -53,8 +53,8 @@ export default function FactoryOverviewPage() {
                 <span className="text-xs font-medium text-slate-400">Admin Wallet</span>
                 <span className="material-icons-round text-xs text-slate-500">verified_user</span>
               </div>
-              <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
-                <code className="text-xs font-mono text-slate-200">EQD3...rT5p</code>
+              <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-white/5">
+                <code className="text-xs font-mono text-slate-600">EQD3...rT5p</code>
                 <button type="button" className="text-primary hover:opacity-80">
                   <span className="material-icons-round text-sm">content_copy</span>
                 </button>
@@ -101,8 +101,8 @@ export default function FactoryOverviewPage() {
                   </div>
                   <span className="material-icons-round text-xs text-primary/40">rocket_launch</span>
                 </div>
-                <div className="flex items-center justify-between bg-background-dark/50 p-2.5 rounded-lg border border-white/5">
-                  <code className="text-[11px] font-mono text-slate-300">{entry.address}</code>
+                <div className="flex items-center justify-between bg-slate-100 p-2.5 rounded-lg border border-white/5">
+                  <code className="text-[11px] font-mono text-slate-600">{entry.address}</code>
                   <button type="button" className="text-primary hover:opacity-80">
                     <span className="material-icons-round text-xs">content_copy</span>
                   </button>

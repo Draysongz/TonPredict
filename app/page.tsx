@@ -6,14 +6,14 @@ import { WalletButton } from "./components/WalletButton";
 
 export default function Home() {
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="material-icons-round text-background-dark text-lg">bolt</span>
+            <span className="material-icons-round text-white text-lg">bolt</span>
           </div>
-          <h1 className="font-bold text-lg tracking-tight">TON Predict</h1>
+          <h1 className="ton-heading text-lg tracking-tight">TON Predict</h1>
         </div>
         <div className="flex items-center gap-2">
           <WalletButton />
@@ -27,20 +27,20 @@ export default function Home() {
         {/* Trending Now Section */}
         <section className="mt-4">
           <div className="px-5 mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary/80">Trending Now</h2>
+            <h2 className="ton-label text-sm uppercase tracking-widest text-primary/80">Trending Now</h2>
             <span className="text-xs text-slate-400">View All</span>
           </div>
           <div className="flex overflow-x-auto gap-4 px-5 hide-scrollbar py-2">
             <Link href="/market/1" className="glass min-w-[280px] p-5 rounded-[24px] border-l-4 border-l-primary relative overflow-hidden block">
               <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background-dark">CRYPTO</span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-white">CRYPTO</span>
                 <span className="text-[10px] text-slate-400">$1.2M Vol</span>
               </div>
               <h3 className="font-semibold text-lg leading-tight mb-4">Will TON hit $10 before Jan 2025?</h3>
               <div className="flex items-center justify-between gap-3" onClick={(e) => e.stopPropagation()}>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 bg-primary text-background-dark py-2.5 rounded-xl font-bold text-sm">Yes $0.64</button>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-white/5 py-2.5 rounded-xl font-bold text-sm">No $0.36</button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-sm">Yes $0.64</button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-slate-100 py-2.5 rounded-xl font-bold text-sm">No $0.36</button>
               </div>
             </Link>
             <Link href="/market/2" className="glass min-w-[280px] p-5 rounded-[24px] border-l-4 border-l-blue-400 relative overflow-hidden block">
@@ -51,7 +51,7 @@ export default function Home() {
               <h3 className="font-semibold text-lg leading-tight mb-4">Who will win the next Debate?</h3>
               <div className="flex items-center justify-between gap-3" onClick={(e) => e.stopPropagation()}>
                 <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 bg-white/10 py-2.5 rounded-xl font-bold text-sm">Candidate A</button>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-white/5 py-2.5 rounded-xl font-bold text-sm">Candidate B</button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-slate-100 py-2.5 rounded-xl font-bold text-sm">Candidate B</button>
               </div>
             </Link>
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="flex gap-2 overflow-x-auto hide-scrollbar">
             <button className="flex flex-col items-center gap-2 min-w-[70px]">
               <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="material-icons-round text-background-dark">trending_up</span>
+                <span className="material-icons-round text-white">trending_up</span>
               </div>
               <span className="text-xs font-medium">Crypto</span>
             </button>
@@ -96,7 +96,7 @@ export default function Home() {
         {/* Active Markets Section */}
         <section className="mt-8 px-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary/80">Active Markets</h2>
+            <h2 className="ton-label text-sm uppercase tracking-widest text-primary/80">Active Markets</h2>
             <div className="flex gap-1">
               <span className="material-icons-round text-sm text-primary">filter_list</span>
               <span className="text-xs font-medium">Newest</span>
@@ -104,7 +104,7 @@ export default function Home() {
           </div>
           <div className="space-y-4">
             {/* Market Card 1 */}
-            <Link href="/market/3" className="p-4 rounded-2xl glass border border-white/5 flex flex-col gap-4 block">
+            <Link href="/market/3" className="p-4 rounded-2xl glass border border-slate-200 flex flex-col gap-4 block">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
                   <Image
@@ -128,19 +128,19 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <span className="text-xs font-medium">Yes</span>
                   <span className="text-primary font-bold">$0.72</span>
                 </div>
-                <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <span className="text-xs font-medium">No</span>
-                  <span className="text-white font-bold">$0.28</span>
+                  <span className="text-slate-900 font-bold">$0.28</span>
                 </div>
               </div>
             </Link>
 
             {/* Market Card 2 */}
-            <Link href="/market/4" className="p-4 rounded-2xl glass border border-white/5 flex flex-col gap-4 block">
+            <Link href="/market/4" className="p-4 rounded-2xl glass border border-slate-200 flex flex-col gap-4 block">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                   <Image
@@ -164,19 +164,19 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <span className="text-xs font-medium">Yes</span>
                   <span className="text-primary font-bold">$0.45</span>
                 </div>
-                <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="flex items-center justify-between bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <span className="text-xs font-medium">No</span>
-                  <span className="text-white font-bold">$0.55</span>
+                  <span className="text-slate-900 font-bold">$0.55</span>
                 </div>
               </div>
             </Link>
 
             {/* Market Card 3 */}
-            <Link href="/market/5" className="p-4 rounded-2xl glass border border-white/5 flex flex-col gap-4 block">
+            <Link href="/market/5" className="p-4 rounded-2xl glass border border-slate-200 flex flex-col gap-4 block">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="material-icons-round text-primary">emoji_events</span>
@@ -193,14 +193,14 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <button className="w-full bg-white/5 py-3 rounded-xl text-xs font-semibold border border-white/5">Explore 12 Options</button>
+              <button className="w-full bg-slate-100 py-3 rounded-xl text-xs font-semibold border border-slate-200">Explore 12 Options</button>
             </Link>
           </div>
         </section>
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200">
         <div className="flex items-center justify-between max-w-md mx-auto relative">
           <Link href="/" className="flex flex-col items-center gap-1 text-primary w-16">
             <span className="material-icons-round text-[24px]">explore</span>
@@ -211,8 +211,8 @@ export default function Home() {
             <span className="text-[10px] font-medium">Reward</span>
           </Link>
           <div className="relative w-16 flex justify-center">
-            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark">
-              <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
+            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark">
+              <span className="material-icons-round text-white text-3xl font-bold">add</span>
             </div>
           </div>
           <Link href="/leaderboard" className="flex flex-col items-center gap-1 text-slate-400 w-16">

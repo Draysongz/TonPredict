@@ -41,12 +41,12 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="bg-background-dark text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6">
+    <div className="bg-background-dark text-slate-900 min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6">
       <div className="absolute inset-0 radial-glow pointer-events-none" />
       <div className="w-full max-w-sm flex flex-col items-center z-10">
         <div className="mb-12 flex flex-col items-center gap-4">
-          <div className="w-20 h-20 bg-primary rounded-[24px] flex items-center justify-center shadow-[0_0_30px_rgba(195,255,77,0.2)]">
-            <span className="material-icons-round text-background-dark text-5xl">bolt</span>
+          <div className="w-20 h-20 bg-primary rounded-[24px] flex items-center justify-center shadow-[0_0_30px_rgba(0,136,204,0.2)]">
+            <span className="material-icons-round text-white text-5xl">bolt</span>
           </div>
           <div className="text-center">
             <h1 className="text-3xl font-bold tracking-tight text-primary">TON Predict</h1>
@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
             <div className="relative">
               <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">person</span>
               <input
-                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-white placeholder-white/20"
+                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400"
                 placeholder="Enter email"
                 type="email"
                 value={email}
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
             <div className="relative">
               <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">lock</span>
               <input
-                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-white placeholder-white/20"
+                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400"
                 placeholder="Enter password"
                 type="password"
                 value={password}
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-primary text-background-dark py-4 rounded-2xl font-bold text-lg mt-4 active:scale-[0.98] transition-transform shadow-lg shadow-primary/20 disabled:opacity-70 disabled:pointer-events-none"
+            className="w-full bg-primary text-white py-4 rounded-2xl font-bold text-lg mt-4 active:scale-[0.98] transition-transform shadow-lg shadow-primary/20 disabled:opacity-70 disabled:pointer-events-none"
           >
             {loading ? "Signing in…" : "Login"}
           </button>

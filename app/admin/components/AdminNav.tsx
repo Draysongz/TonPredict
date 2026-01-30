@@ -17,7 +17,7 @@ export function AdminNav({ activeTab }: AdminNavProps) {
     activeTab === tab ? "text-[10px] font-bold" : "text-[10px] font-medium";
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200">
       <div className="flex items-center justify-between max-w-md mx-auto relative">
         <Link href="/admin" className={linkClass("overview")}>
           <span className="material-icons-round text-[24px]">dashboard</span>
@@ -30,9 +30,9 @@ export function AdminNav({ activeTab }: AdminNavProps) {
         <div className="relative w-16 flex justify-center">
           <Link
             href="/admin/deploy"
-            className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark"
+            className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark"
           >
-            <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
+            <span className="material-icons-round text-white text-3xl font-bold">add</span>
           </Link>
         </div>
         <Link href="/admin/history" className={linkClass("history")}>

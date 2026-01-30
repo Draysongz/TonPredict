@@ -10,15 +10,15 @@ export default function ManageMarketsPage() {
   const [filter, setFilter] = useState<"active" | "resolved">("active");
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => router.back()}
             className="w-10 h-10 flex items-center justify-center"
           >
-            <span className="material-icons-round text-white">arrow_back_ios_new</span>
+            <span className="material-icons-round text-slate-900">arrow_back_ios_new</span>
           </button>
           <div>
             <h1 className="font-bold text-base leading-tight">Manage Markets</h1>
@@ -34,7 +34,7 @@ export default function ManageMarketsPage() {
             onClick={() => setFilter("active")}
             className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-colors ${
               filter === "active"
-                ? "bg-primary text-background-dark shadow-lg shadow-primary/20"
+                ? "bg-primary text-white shadow-lg shadow-primary/20"
                 : "text-slate-400"
             }`}
           >
@@ -45,7 +45,7 @@ export default function ManageMarketsPage() {
             onClick={() => setFilter("resolved")}
             className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-colors ${
               filter === "resolved"
-                ? "bg-primary text-background-dark shadow-lg shadow-primary/20"
+                ? "bg-primary text-white shadow-lg shadow-primary/20"
                 : "text-slate-400"
             }`}
           >
@@ -56,7 +56,7 @@ export default function ManageMarketsPage() {
         <div className="space-y-4">
           {/* Active market 1 */}
           {filter === "active" && (
-          <div className="glass p-5 rounded-[24px] border border-white/5 relative overflow-hidden">
+          <div className="glass p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
             <div className="flex justify-between items-start mb-4">
               <div>
                 <span className="text-[10px] font-mono text-primary/60 mb-1 block">ID: #TON-842-X</span>
@@ -84,7 +84,7 @@ export default function ManageMarketsPage() {
             </div>
             <Link
               href="/admin/markets/842"
-              className="w-full bg-white/5 hover:bg-white/10 text-white py-3 rounded-xl font-bold text-sm transition-colors border border-white/10 flex items-center justify-center gap-2"
+              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl font-bold text-sm transition-colors border border-slate-200 flex items-center justify-center gap-2"
             >
               View Details
               <span className="material-icons-round text-sm">arrow_forward</span>
@@ -94,7 +94,7 @@ export default function ManageMarketsPage() {
 
           {/* Active market 2 */}
           {filter === "active" && (
-          <div className="glass p-5 rounded-[24px] border border-white/5 relative overflow-hidden">
+          <div className="glass p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
             <div className="flex justify-between items-start mb-4">
               <div>
                 <span className="text-[10px] font-mono text-primary/60 mb-1 block">ID: #ETH-391-B</span>
@@ -122,7 +122,7 @@ export default function ManageMarketsPage() {
             </div>
             <Link
               href="/admin/markets/391"
-              className="w-full bg-white/5 hover:bg-white/10 text-white py-3 rounded-xl font-bold text-sm transition-colors border border-white/10 flex items-center justify-center gap-2"
+              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl font-bold text-sm transition-colors border border-slate-200 flex items-center justify-center gap-2"
             >
               View Details
               <span className="material-icons-round text-sm">arrow_forward</span>
@@ -132,7 +132,7 @@ export default function ManageMarketsPage() {
 
           {/* Resolved market */}
           {filter === "resolved" && (
-          <div className="glass opacity-70 p-5 rounded-[24px] border border-white/5 relative overflow-hidden">
+          <div className="glass opacity-70 p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
             <div className="flex justify-between items-start mb-4">
               <div>
                 <span className="text-[10px] font-mono text-slate-500 mb-1 block">ID: #BTC-112-S</span>
@@ -160,7 +160,7 @@ export default function ManageMarketsPage() {
             </div>
             <Link
               href="/admin/markets/112/claims"
-              className="w-full bg-white/5 text-slate-400 py-3 rounded-xl font-bold text-sm border border-white/5 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+              className="w-full bg-slate-100 text-slate-500 py-3 rounded-xl font-bold text-sm border border-slate-200 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
             >
               View History
             </Link>
@@ -172,7 +172,7 @@ export default function ManageMarketsPage() {
       <div className="fixed bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-3 z-40">
         <Link
           href="/admin/deploy"
-          className="bg-primary text-background-dark py-3 px-6 rounded-full font-bold text-sm shadow-xl shadow-primary/20 flex items-center gap-2 whitespace-nowrap active:scale-95 transition-transform"
+          className="bg-primary text-white py-3 px-6 rounded-full font-bold text-sm shadow-xl shadow-primary/20 flex items-center gap-2 whitespace-nowrap active:scale-95 transition-transform"
         >
           <span className="material-icons-round">add</span>
           Deploy New Market

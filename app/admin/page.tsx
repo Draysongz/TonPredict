@@ -16,12 +16,12 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex flex-col gap-2 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex flex-col gap-2 bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="material-icons-round text-background-dark text-lg">admin_panel_settings</span>
+              <span className="material-icons-round text-white text-lg">admin_panel_settings</span>
             </div>
             <div>
               <h1 className="font-bold text-base tracking-tight leading-none">Admin Panel</h1>
@@ -73,14 +73,14 @@ export default function AdminDashboardPage() {
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary/60 mb-4">Primary Actions</h2>
           <Link
             href="/admin/deploy"
-            className="w-full bg-primary text-background-dark py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-[0.98] transition-transform"
+            className="w-full bg-primary text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-[0.98] transition-transform"
           >
             <span className="material-icons-round">add_circle</span>
             Create New Market
           </Link>
           <Link
             href="/admin/markets"
-            className="w-full bg-primary text-background-dark py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-[0.98] transition-transform"
+            className="w-full bg-primary text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-[0.98] transition-transform"
           >
             <span className="material-icons-round">list_alt</span>
             View All Markets
@@ -101,11 +101,11 @@ export default function AdminDashboardPage() {
             </div>
           </div>
           <div className="space-y-3">
-            <div className="flex justify-between items-center py-2 border-b border-white/5">
+            <div className="flex justify-between items-center py-2 border-b border-slate-200">
               <span className="text-xs text-slate-300">Creation Fee</span>
               <span className="text-xs font-mono font-bold">5 TON</span>
             </div>
-            <div className="flex justify-between items-center py-2 border-b border-white/5">
+            <div className="flex justify-between items-center py-2 border-b border-slate-200">
               <span className="text-xs text-slate-300">Platform Fee</span>
               <span className="text-xs font-mono font-bold">2.5%</span>
             </div>

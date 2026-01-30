@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AdminDeniedPage() {
   return (
-    <div className="bg-background-dark text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-10">
+    <div className="bg-background-dark text-slate-900 min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-10">
       <div className="absolute inset-0 radial-glow-denied pointer-events-none" />
       <div className="w-full max-w-sm flex flex-col items-center z-10 text-center">
         <div className="mb-8 flex flex-col items-center">
@@ -30,7 +30,7 @@ export default function AdminDeniedPage() {
         <div className="w-full space-y-6 flex flex-col items-center">
           <Link
             href="/"
-            className="w-full bg-primary text-background-dark py-4 rounded-2xl font-bold text-lg active:scale-[0.98] transition-transform shadow-lg shadow-primary/20 text-center"
+            className="w-full bg-primary text-white py-4 rounded-2xl font-bold text-lg active:scale-[0.98] transition-transform shadow-lg shadow-primary/20 text-center"
           >
             Back to Home
           </Link>

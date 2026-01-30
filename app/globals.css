@@ -1,29 +1,36 @@
 @import "tailwindcss";
 
+/* TON (ton.org) design tokens – colors, gradients, typography */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0d0d0d;
+  /* TON brand colors – matches ton.org / Telegram */
+  --ton-primary: #0088cc;
+  --ton-primary-light: #00a2e8;
+  --ton-cyan: #2aabee;
+  --ton-bg-start: #f0f7ff;
+  --ton-bg-end: #ffffff;
+  --ton-surface: #f5f9fc;
+  --ton-border: #e1e8ed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   
-  /* TON Predict colors */
-  --color-primary: #C3FF4D;
-  --color-background-light: #F8FAF4;
-  --color-background-dark: #0A1F11;
-  --color-surface-dark: #122D1C;
-  --color-glass-dark: rgba(255, 255, 255, 0.05);
+  /* TON colors – aligned with ton.org */
+  --color-primary: var(--ton-primary);
+  --color-background-light: var(--ton-surface);
+  --color-background-dark: var(--background);
+  --color-surface-dark: var(--ton-surface);
+  --color-glass-dark: rgba(0, 0, 0, 0.03);
   
   /* Custom border radius */
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
   --radius-default: 12px;
-  
-  /* Border radius default */
   --radius: var(--radius-default);
 }
 
@@ -35,17 +42,20 @@
 }
 
 body {
-  font-family: 'Inter', var(--font-geist-sans), 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
   min-height: max(884px, 100dvh);
   background-color: var(--color-background-dark);
-  color: white;
+  color: var(--foreground);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  letter-spacing: -0.011em;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 136, 204, 0.08);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -57,19 +67,30 @@ body {
   scrollbar-width: none;
 }
 
+/* TON-style gradients – ton.org hero/section feel */
 .gradient-bg {
-  background: radial-gradient(circle at top right, rgba(195, 255, 77, 0.15), transparent 60%),
-              radial-gradient(circle at bottom left, rgba(195, 255, 77, 0.05), transparent 40%);
+  background: linear-gradient(180deg, var(--ton-bg-start) 0%, var(--ton-bg-end) 35%, var(--ton-bg-end) 100%),
+              radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 136, 204, 0.08), transparent 45%),
+              radial-gradient(ellipse 60% 40% at 100% 80%, rgba(42, 171, 238, 0.05), transparent 40%);
+}
+
+.ton-gradient-hero {
+  background: linear-gradient(180deg, #e8f4fc 0%, #f0f7ff 30%, #ffffff 100%);
+}
+
+.ton-gradient-radial {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 136, 204, 0.12), transparent 50%),
+              radial-gradient(ellipse 60% 40% at 100% 100%, rgba(42, 171, 238, 0.08), transparent 40%);
 }
 
 .glassmorphic {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .chart-gradient {
-  background: linear-gradient(to top, rgba(195, 255, 77, 0), rgba(195, 255, 77, 0.2));
+  background: linear-gradient(to top, rgba(0, 136, 204, 0), rgba(0, 136, 204, 0.2));
 }
 
 .material-symbols-outlined {
@@ -77,20 +98,36 @@ body {
 }
 
 .glass-input {
-  background: rgba(18, 42, 27, 0.6);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(195, 255, 77, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   transition: border-color 0.2s ease;
 }
 
 .glass-input:focus {
-  border-color: #C3FF4D;
+  border-color: var(--ton-primary);
   outline: none;
-  box-shadow: 0 0 15px rgba(195, 255, 77, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.12);
 }
 
 .radial-glow {
-  background: radial-gradient(circle at center, rgba(195, 255, 77, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(0, 136, 204, 0.06) 0%, transparent 70%);
+}
+
+/* TON typography – Inter, tight headings (ton.org style) */
+.ton-heading {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.ton-heading-lg {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.ton-label {
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .radial-glow-denied {

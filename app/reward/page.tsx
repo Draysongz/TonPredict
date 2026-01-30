@@ -5,14 +5,14 @@ import { WalletButton } from "../components/WalletButton";
 
 export default function RewardPage() {
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="material-icons-round text-background-dark text-lg">bolt</span>
+            <span className="material-icons-round text-white text-lg">bolt</span>
           </div>
-          <h1 className="font-bold text-lg tracking-tight">TON Predict</h1>
+          <h1 className="ton-heading text-lg tracking-tight">TON Predict</h1>
         </div>
         <div className="flex items-center gap-2">
           <WalletButton />
@@ -25,7 +25,7 @@ export default function RewardPage() {
       <main className="pb-32 px-5 pt-24">
         {/* Liquidity Rewards Section */}
         <section className="mb-8">
-          <div className="glass rounded-[28px] p-6 border border-white/10 relative overflow-hidden">
+          <div className="glass rounded-[28px] p-6 border border-slate-200 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <span className="material-symbols-outlined text-6xl">water_drop</span>
             </div>
@@ -34,7 +34,7 @@ export default function RewardPage() {
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
                 Earn rewards by placing orders within the spread. Rewards are distributed directly to wallets everyday at midnight UTC.
               </p>
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
+              <div className="bg-slate-100 rounded-2xl p-5 border border-slate-200">
                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">Estimated Rewards</p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-primary tracking-tight tabular-nums">14.82</span>
@@ -52,15 +52,15 @@ export default function RewardPage() {
         {/* Active Liquidity Section */}
         <section>
           <div className="flex items-center justify-between mb-4 px-1">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-white/80 flex items-center gap-2">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2">
               <span className="material-icons-round text-primary text-base">waves</span>
               Your Active Liquidity
             </h2>
-            <span className="text-[10px] bg-white/10 px-2 py-1 rounded text-slate-300">2 Markets</span>
+            <span className="text-[10px] bg-slate-200/60 px-2 py-1 rounded text-slate-600">2 Markets</span>
           </div>
           <div className="space-y-3">
             {/* Market 1 */}
-            <div className="glass p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+            <div className="glass p-4 rounded-2xl border border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
                   <span className="material-symbols-outlined text-blue-400">trending_up</span>
@@ -71,13 +71,13 @@ export default function RewardPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xs font-bold text-white">$450.00</p>
+                <p className="text-xs font-bold text-slate-900">$450.00</p>
                 <p className="text-[10px] text-primary font-medium">+2.4% Share</p>
               </div>
             </div>
 
             {/* Market 2 */}
-            <div className="glass p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+            <div className="glass p-4 rounded-2xl border border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
                   <span className="material-symbols-outlined text-purple-400">rocket_launch</span>
@@ -88,13 +88,13 @@ export default function RewardPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xs font-bold text-white">$1,200.00</p>
+                <p className="text-xs font-bold text-slate-900">$1,200.00</p>
                 <p className="text-[10px] text-primary font-medium">+0.8% Share</p>
               </div>
             </div>
 
             {/* Add More Liquidity Button */}
-            <button className="w-full py-4 border-2 border-dashed border-white/10 rounded-2xl flex items-center justify-center gap-2 text-slate-400 hover:text-primary hover:border-primary/30 transition-colors">
+            <button className="w-full py-4 border-2 border-dashed border-slate-200 rounded-2xl flex items-center justify-center gap-2 text-slate-400 hover:text-primary hover:border-primary/30 transition-colors">
               <span className="material-icons-round text-sm">add_circle_outline</span>
               <span className="text-xs font-bold uppercase tracking-wider">Provide More Liquidity</span>
             </button>
@@ -102,7 +102,7 @@ export default function RewardPage() {
         </section>
 
         {/* Info Box */}
-        <div className="mt-8 glass p-4 rounded-2xl border border-white/5 bg-primary/5">
+        <div className="mt-8 glass p-4 rounded-2xl border border-slate-200 bg-primary/5">
           <div className="flex gap-3">
             <span className="material-icons-round text-primary text-xl">info</span>
             <p className="text-[11px] text-slate-300 leading-relaxed">
@@ -113,7 +113,7 @@ export default function RewardPage() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200">
         <div className="flex items-center justify-between max-w-md mx-auto relative">
           <Link href="/" className="flex flex-col items-center gap-1 text-slate-400 w-16">
             <span className="material-icons-round text-[24px]">explore</span>
@@ -124,8 +124,8 @@ export default function RewardPage() {
             <span className="text-[10px] font-bold">Reward</span>
           </Link>
           <div className="relative w-16 flex justify-center">
-            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark">
-              <span className="material-icons-round text-background-dark text-3xl font-bold">add</span>
+            <div className="absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark">
+              <span className="material-icons-round text-white text-3xl font-bold">add</span>
             </div>
           </div>
           <Link href="/leaderboard" className="flex flex-col items-center gap-1 text-slate-400 w-16">

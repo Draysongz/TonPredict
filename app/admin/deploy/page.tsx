@@ -20,17 +20,17 @@ export default function DeployNewMarketPage() {
   const creatorDisplay = walletAddress ? truncateAddress(walletAddress) : "—";
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg flex flex-col">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg flex flex-col">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => router.back()}
             className="w-8 h-8 flex items-center justify-center"
           >
-            <span className="material-icons-round text-white">arrow_back_ios_new</span>
+            <span className="material-icons-round text-slate-900">arrow_back_ios_new</span>
           </button>
-          <h1 className="font-bold text-lg tracking-tight">Deploy New Market</h1>
+          <h1 className="ton-heading text-lg tracking-tight">Deploy New Market</h1>
         </div>
       </header>
 
@@ -50,7 +50,7 @@ export default function DeployNewMarketPage() {
             </label>
             <div className="relative">
               <input
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-mono text-slate-300 cursor-not-allowed glass-input"
+                className="w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-mono text-slate-300 cursor-not-allowed glass-input"
                 readOnly
                 type="text"
                 value={creatorDisplay}
@@ -69,7 +69,7 @@ export default function DeployNewMarketPage() {
               Market ID
             </label>
             <input
-              className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600"
+              className="w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600"
               placeholder="Enter unique integer ID"
               type="number"
               min={1}
@@ -88,7 +88,7 @@ export default function DeployNewMarketPage() {
             </label>
             <div className="grid grid-cols-2 gap-3">
               <input
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600"
+                className="w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600"
                 placeholder="Value"
                 type="number"
                 min={1}
@@ -97,7 +97,7 @@ export default function DeployNewMarketPage() {
               />
               <div className="relative">
                 <select
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input appearance-none transition-all"
+                  className="w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input appearance-none transition-all"
                   value={resolutionUnit}
                   onChange={(e) =>
                     setResolutionUnit(e.target.value as "seconds" | "minutes" | "hours" | "days")
@@ -121,7 +121,7 @@ export default function DeployNewMarketPage() {
           <div className="pt-4">
             <button
               type="button"
-              className="w-full bg-primary text-background-dark py-4 rounded-2xl font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              className="w-full bg-primary text-white py-4 rounded-2xl font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
             >
               <span className="material-icons-round">rocket_launch</span>
               Create Market

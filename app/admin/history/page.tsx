@@ -28,12 +28,12 @@ export default function AdminHistoryPage() {
   }
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex flex-col gap-2 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex flex-col gap-2 bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="material-icons-round text-background-dark text-lg">history</span>
+              <span className="material-icons-round text-white text-lg">history</span>
             </div>
             <div>
               <h1 className="font-bold text-base tracking-tight leading-none">History</h1>
@@ -68,7 +68,7 @@ export default function AdminHistoryPage() {
           {recentDeployments.map((entry, i) => (
             <div
               key={entry.id}
-              className="glass rounded-2xl p-4 border border-white/5 relative overflow-hidden"
+              className="glass rounded-2xl p-4 border border-slate-200 relative overflow-hidden"
             >
               {i === 0 && (
                 <div className="absolute right-0 top-0 h-full w-1 bg-primary/20" />
@@ -99,7 +99,7 @@ export default function AdminHistoryPage() {
           {recentResolutions.map((entry, i) => (
             <div
               key={entry.id}
-              className="glass rounded-2xl p-4 border border-white/5 relative overflow-hidden"
+              className="glass rounded-2xl p-4 border border-slate-200 relative overflow-hidden"
             >
               {i === 0 && (
                 <div className="absolute right-0 top-0 h-full w-1 bg-primary/20" />
@@ -110,7 +110,7 @@ export default function AdminHistoryPage() {
                   {entry.outcome}
                 </span>
               </div>
-              <p className="text-sm font-medium text-white leading-tight">{entry.market}</p>
+              <p className="text-sm font-medium text-slate-900 leading-tight">{entry.market}</p>
               <Link
                 href={`/admin/markets/${entry.id}`}
                 className="inline-flex items-center gap-1 mt-2 text-[10px] font-bold text-primary hover:underline"

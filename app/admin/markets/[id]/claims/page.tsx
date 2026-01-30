@@ -20,8 +20,8 @@ export default function MarketClaimsPage({
   ];
 
   return (
-    <div className="bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -55,19 +55,19 @@ export default function MarketClaimsPage({
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-slate-400">Winning Outcome</span>
-                <span className="bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   YES
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <p className="text-[10px] text-slate-400 uppercase font-bold mb-1">Total Claims Made</p>
                   <div className="flex items-end gap-1">
                     <span className="text-lg font-bold">142,850</span>
                     <span className="text-[10px] text-primary mb-1">TON</span>
                   </div>
                 </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
+                <div className="bg-slate-100 p-3 rounded-xl border border-slate-200">
                   <p className="text-[10px] text-slate-400 uppercase font-bold mb-1">Contract Balance</p>
                   <div className="flex items-end gap-1">
                     <span className="text-lg font-bold">12,150</span>
@@ -119,7 +119,7 @@ export default function MarketClaimsPage({
 
       <div className="fixed bottom-24 left-1/2 -translate-x-1/2 glass border-primary/20 py-2 px-6 rounded-full flex items-center gap-3 whitespace-nowrap shadow-xl z-40 bg-surface-dark/80">
         <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white">
+        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-600">
           Live Claims Monitoring
         </span>
       </div>

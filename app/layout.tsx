@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -60,7 +60,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${inter.variable} antialiased`}
-        style={{ fontFamily: 'Inter, var(--font-inter), sans-serif' }}
+        style={{ fontFamily: 'Inter, var(--font-inter), system-ui, sans-serif' }}
       >
         <ClientLayout>
           <TonConnectUIProvider manifestUrl={manifestUrl}>{children}</TonConnectUIProvider>
