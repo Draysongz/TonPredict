@@ -1,9 +1,0 @@
-{
-  "[project]/node_modules/@tonconnect/ui-react/lib/index.mjs [app-client] (ecmascript, next/dynamic entry)": {
-    "id": "[project]/node_modules/@tonconnect/ui-react/lib/index.mjs [app-client] (ecmascript, next/dynamic entry)",
-    "files": [
-      "static/chunks/node_modules_3c8dd030._.js",
-      "static/chunks/node_modules_@tonconnect_ui-react_lib_index_mjs_df3d40c7._.js"
-    ]
-  }
-}
