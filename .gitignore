@@ -24,4 +24,5 @@ Session.vim
 .nvim/
 .emacs/
 .helix/
+.next
 

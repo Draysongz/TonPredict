@@ -41,26 +41,29 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="bg-background-dark text-slate-900 min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6">
-      <div className="absolute inset-0 radial-glow pointer-events-none" />
+    <div className="admin-gradient-bg min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-ton-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 right-10 w-80 h-80 bg-ton-cyan/10 rounded-full blur-3xl" />
+      </div>
       <div className="w-full max-w-sm flex flex-col items-center z-10">
-        <div className="mb-12 flex flex-col items-center gap-4">
-          <div className="w-20 h-20 bg-primary rounded-[24px] flex items-center justify-center shadow-[0_0_30px_rgba(0,136,204,0.2)]">
-            <span className="material-icons-round text-white text-5xl">bolt</span>
+        <div className="mb-12 flex flex-col items-center gap-5">
+          <div className="w-24 h-24 ton-gradient-button rounded-2xl flex items-center justify-center">
+            <span className="material-icons-round text-white text-6xl">bolt</span>
           </div>
           <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-primary">TON Predict</h1>
-            <p className="text-primary/60 text-sm font-semibold uppercase tracking-[0.2em] mt-1">Admin Panel</p>
+            <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-ton-primary to-ton-cyan bg-clip-text text-transparent">TON Predict</h1>
+            <p className="text-slate-600 text-sm font-bold uppercase tracking-[0.25em] mt-2">Admin Panel</p>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="w-full space-y-4">
-          <div className="space-y-1.5">
-            <label className="text-[10px] font-bold uppercase tracking-widest text-primary/60 ml-4">Email</label>
+        <form onSubmit={handleSubmit} className="w-full space-y-5">
+          <div className="space-y-2">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-ton-primary ml-1">Email</label>
             <div className="relative">
-              <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">person</span>
+              <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-ton-primary/50 text-xl">person</span>
               <input
-                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400"
+                className="w-full bg-white border-2 border-slate-200 focus:border-ton-primary rounded-xl py-4 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 outline-none transition-all shadow-sm"
                 placeholder="Enter email"
                 type="email"
                 value={email}
@@ -70,12 +73,12 @@ export default function AdminLoginPage() {
               />
             </div>
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[10px] font-bold uppercase tracking-widest text-primary/60 ml-4">Password</label>
+          <div className="space-y-2">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-ton-primary ml-1">Password</label>
             <div className="relative">
-              <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">lock</span>
+              <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-ton-primary/50 text-xl">lock</span>
               <input
-                className="w-full glass-input rounded-2xl py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400"
+                className="w-full bg-white border-2 border-slate-200 focus:border-ton-primary rounded-xl py-4 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 outline-none transition-all shadow-sm"
                 placeholder="Enter password"
                 type="password"
                 value={password}
@@ -86,14 +89,17 @@ export default function AdminLoginPage() {
             </div>
           </div>
           {error && (
-            <p className="text-sm text-red-400 text-center" role="alert">
-              {error}
-            </p>
+            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-3 flex items-center gap-2">
+              <span className="material-icons-round text-red-500 text-lg">error</span>
+              <p className="text-sm text-red-700 font-medium" role="alert">
+                {error}
+              </p>
+            </div>
           )}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-primary text-white py-4 rounded-2xl font-bold text-lg mt-4 active:scale-[0.98] transition-transform shadow-lg shadow-primary/20 disabled:opacity-70 disabled:pointer-events-none"
+            className="w-full ton-gradient-button text-white py-4 rounded-xl font-bold text-lg mt-6 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none"
           >
             {loading ? "Signing in…" : "Login"}
           </button>
@@ -101,9 +107,9 @@ export default function AdminLoginPage() {
 
       </div>
 
-      <div className="absolute bottom-8 flex items-center gap-2 opacity-30">
-        <span className="material-icons-round text-sm">shield</span>
-        <span className="text-[10px] font-bold uppercase tracking-widest">Secure Admin Access</span>
+      <div className="absolute bottom-8 flex items-center gap-2 text-slate-500">
+        <span className="material-icons-round text-base">shield</span>
+        <span className="text-[11px] font-bold uppercase tracking-widest">Secure Admin Access</span>
       </div>
     </div>
   );

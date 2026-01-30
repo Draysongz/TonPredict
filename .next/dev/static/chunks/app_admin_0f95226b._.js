@@ -15,7 +15,7 @@ function AdminNav({ activeTab }) {
     const linkClass = (tab)=>`flex flex-col items-center gap-1 w-16 ${activeTab === tab ? "text-primary" : "text-slate-400"}`;
     const labelClass = (tab)=>activeTab === tab ? "text-[10px] font-bold" : "text-[10px] font-medium";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-white/5",
+        className: "fixed bottom-0 left-0 right-0 z-50 px-6 pt-4 pb-8 bg-background-dark/95 backdrop-blur-2xl border-t border-slate-200",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex items-center justify-between max-w-md mx-auto relative",
             children: [
@@ -75,9 +75,9 @@ function AdminNav({ activeTab }) {
                     className: "relative w-16 flex justify-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: "/admin/deploy",
-                        className: "absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(195,255,77,0.4)] border-4 border-background-dark",
+                        className: "absolute -top-12 bg-primary w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,136,204,0.4)] border-4 border-background-dark",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "material-icons-round text-background-dark text-3xl font-bold",
+                            className: "material-icons-round text-white text-3xl font-bold",
                             children: "add"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/components/AdminNav.tsx",
@@ -197,10 +197,10 @@ function DeployNewMarketPage() {
     const [resolutionUnit, setResolutionUnit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("days");
     const creatorDisplay = walletAddress ? truncateAddress(walletAddress) : "—";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-background-dark text-white min-h-screen overflow-x-hidden gradient-bg flex flex-col",
+        className: "bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                className: "fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-white/5",
+                className: "fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex items-center gap-3",
                     children: [
@@ -209,7 +209,7 @@ function DeployNewMarketPage() {
                             onClick: ()=>router.back(),
                             className: "w-8 h-8 flex items-center justify-center",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "material-icons-round text-white",
+                                className: "material-icons-round text-slate-900",
                                 children: "arrow_back_ios_new"
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/deploy/page.tsx",
@@ -222,7 +222,7 @@ function DeployNewMarketPage() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "font-bold text-lg tracking-tight",
+                            className: "ton-heading text-lg tracking-tight",
                             children: "Deploy New Market"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/deploy/page.tsx",
@@ -283,7 +283,7 @@ function DeployNewMarketPage() {
                                         className: "relative",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                className: "w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-mono text-slate-300 cursor-not-allowed glass-input",
+                                                className: "w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-mono text-slate-300 cursor-not-allowed glass-input",
                                                 readOnly: true,
                                                 type: "text",
                                                 value: creatorDisplay
@@ -332,7 +332,7 @@ function DeployNewMarketPage() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        className: "w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600",
+                                        className: "w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600",
                                         placeholder: "Enter unique integer ID",
                                         type: "number",
                                         min: 1,
@@ -389,7 +389,7 @@ function DeployNewMarketPage() {
                                         className: "grid grid-cols-2 gap-3",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                className: "w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600",
+                                                className: "w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input transition-all placeholder:text-slate-600",
                                                 placeholder: "Value",
                                                 type: "number",
                                                 min: 1,
@@ -404,7 +404,7 @@ function DeployNewMarketPage() {
                                                 className: "relative",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                        className: "w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-sm font-medium glass-input appearance-none transition-all",
+                                                        className: "w-full bg-slate-100 border border-slate-200 rounded-2xl px-4 py-4 text-sm font-medium glass-input appearance-none transition-all",
                                                         value: resolutionUnit,
                                                         onChange: (e)=>setResolutionUnit(e.target.value),
                                                         children: [
@@ -484,7 +484,7 @@ function DeployNewMarketPage() {
                                 className: "pt-4",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     type: "button",
-                                    className: "w-full bg-primary text-background-dark py-4 rounded-2xl font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2",
+                                    className: "w-full bg-primary text-white py-4 rounded-2xl font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "material-icons-round",

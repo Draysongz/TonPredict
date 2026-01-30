@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { useRouter } from "next/navigation";
-import { AdminNav } from "@/app/admin/components/AdminNav";
+import { AdminHeader } from "@/app/admin/components/AdminHeader";
 
 export default function MarketClaimsPage({
   params,
@@ -20,111 +20,119 @@ export default function MarketClaimsPage({
   ];
 
   return (
-    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
-        <div className="flex items-center gap-3">
+    <div className="min-h-screen bg-slate-50">
+      <AdminHeader 
+        title="Claims Monitoring" 
+        subtitle={`Market #${id} - Resolved`}
+        action={
           <button
             type="button"
             onClick={() => router.back()}
-            className="w-8 h-8 flex items-center justify-center text-slate-400"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 transition-colors text-slate-700 font-semibold"
           >
-            <span className="material-icons-round">arrow_back_ios</span>
+            <span className="material-icons-round text-lg">arrow_back</span>
+            Back
           </button>
-          <div>
-            <h1 className="font-bold text-base tracking-tight leading-tight">Claims Visibility</h1>
-            <p className="text-[10px] text-primary/70 uppercase font-bold tracking-widest">
-              Market #{id} Resolved
-            </p>
-          </div>
-        </div>
-        <button
-          type="button"
-          className="w-10 h-10 glass rounded-full flex items-center justify-center"
-        >
-          <span className="material-icons-round text-primary">refresh</span>
-        </button>
-      </header>
+        }
+      />
 
-      <main className="px-5 pt-20 pb-36">
-        <section className="mb-8">
-          <div className="glass rounded-[24px] p-5 border-l-4 border-l-primary relative overflow-hidden">
-            <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl" />
-            <h2 className="text-sm font-medium text-slate-400 mb-4 italic">
-              &ldquo;Will TON hit $10 before Jan 2025?&rdquo;
-            </h2>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-slate-400">Winning Outcome</span>
-                <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl space-y-6">
+        {/* Market Summary */}
+        <div className="bg-white border border-slate-200 rounded-xl p-6">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="w-14 h-14 rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 flex items-center justify-center shrink-0">
+              <span className="material-icons-round text-blue-500 text-2xl">check_circle</span>
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h2 className="text-lg font-bold text-slate-900">Market Resolved</h2>
+                <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-3 py-1 rounded-lg text-xs font-bold uppercase">
                   YES
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-slate-100 p-3 rounded-xl border border-slate-200">
-                  <p className="text-[10px] text-slate-400 uppercase font-bold mb-1">Total Claims Made</p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-lg font-bold">142,850</span>
-                    <span className="text-[10px] text-primary mb-1">TON</span>
-                  </div>
-                </div>
-                <div className="bg-slate-100 p-3 rounded-xl border border-slate-200">
-                  <p className="text-[10px] text-slate-400 uppercase font-bold mb-1">Contract Balance</p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-lg font-bold">12,150</span>
-                    <span className="text-[10px] text-primary mb-1">TON</span>
-                  </div>
-                </div>
+              <p className="text-sm text-slate-600 italic">
+                "Will TON hit $10 before Jan 2025?"
+              </p>
+            </div>
+            <button
+              type="button"
+              className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+            >
+              <span className="material-icons-round text-blue-500">refresh</span>
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Total Claims Made</span>
+              <div className="text-2xl font-bold text-slate-900 mt-2">
+                142,850 <span className="text-sm font-normal text-slate-500">TON</span>
               </div>
             </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Contract Balance</span>
+              <div className="text-2xl font-bold text-slate-900 mt-2">
+                12,150 <span className="text-sm font-normal text-slate-500">TON</span>
+              </div>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Unique Claimants</span>
+              <div className="text-2xl font-bold text-slate-900 mt-2">824</div>
+            </div>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-primary/80">
-              Claim Transactions
-            </h3>
-            <span className="text-[10px] text-slate-400">Read-Only View</span>
+        {/* Live Monitoring Badge */}
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+            Claim Transactions
+          </h3>
+          <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+            <span className="text-xs font-bold text-slate-700">Live Monitoring</span>
           </div>
-          <div className="space-y-3">
-            {claims.map((claim, i) => (
-              <div
-                key={claim.address + claim.time}
-                className={`glass p-4 rounded-2xl flex items-center justify-between gap-4 ${
-                  i >= 2 ? (i === 2 ? "opacity-70" : "opacity-50") : ""
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="material-icons-round text-primary text-lg">account_balance_wallet</span>
+        </div>
+
+        {/* Claims List */}
+        <div className="space-y-3">
+          {claims.map((claim, i) => (
+            <div
+              key={claim.address + claim.time}
+              className="bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                    <span className="material-icons-round text-blue-500">account_balance_wallet</span>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold font-mono">{claim.address}</p>
-                    <p className="text-[10px] text-slate-500">{claim.time}</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <code className="text-sm font-mono font-bold text-slate-900">{claim.address}</code>
+                      <button type="button" className="text-blue-500 hover:text-blue-600 transition-colors">
+                        <span className="material-icons-round text-base">content_copy</span>
+                      </button>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <span className="material-icons-round text-xs">schedule</span>
+                      {claim.time}
+                    </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-bold text-primary">{claim.amount}</p>
-                  <p className="text-[10px] text-slate-500">TON</p>
+                  <div className="text-xl font-bold text-emerald-600">{claim.amount}</div>
+                  <div className="text-xs text-slate-500">TON</div>
                 </div>
               </div>
-            ))}
-          </div>
-          <div className="py-6 flex flex-col items-center gap-2 opacity-30">
-            <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-            <span className="text-[10px] font-medium">Syncing Ledger...</span>
-          </div>
-        </section>
-      </main>
+            </div>
+          ))}
+        </div>
 
-      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 glass border-primary/20 py-2 px-6 rounded-full flex items-center gap-3 whitespace-nowrap shadow-xl z-40 bg-surface-dark/80">
-        <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-600">
-          Live Claims Monitoring
-        </span>
+        {/* Loading More */}
+        <div className="py-8 flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <span className="text-sm font-medium text-slate-500">Syncing ledger data...</span>
+        </div>
       </div>
-
-      <AdminNav activeTab="markets" />
     </div>
   );
 }

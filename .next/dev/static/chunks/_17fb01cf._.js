@@ -101,20 +101,20 @@ function AdminLayout({ children }) {
     ]);
     if (checking && !isLoginPage) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-background-dark min-h-screen flex items-center justify-center",
+            className: "admin-gradient-bg min-h-screen flex items-center justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col items-center gap-4",
+                className: "flex flex-col items-center gap-5",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
+                        className: "w-16 h-16 border-4 border-slate-200 border-t-ton-primary rounded-full animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/app/admin/layout.tsx",
                         lineNumber: 48,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-primary/80 text-sm",
-                        children: "Checking auth…"
+                        className: "text-ton-primary font-semibold text-sm",
+                        children: "Checking authentication…"
                     }, void 0, false, {
                         fileName: "[project]/app/admin/layout.tsx",
                         lineNumber: 49,

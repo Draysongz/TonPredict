@@ -2,184 +2,200 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { AdminNav } from "../components/AdminNav";
+import { AdminHeader } from "../components/AdminHeader";
 
 export default function ManageMarketsPage() {
-  const router = useRouter();
   const [filter, setFilter] = useState<"active" | "resolved">("active");
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="w-10 h-10 flex items-center justify-center"
-          >
-            <span className="material-icons-round text-slate-900">arrow_back_ios_new</span>
-          </button>
-          <div>
-            <h1 className="font-bold text-base leading-tight">Manage Markets</h1>
-            <p className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Factory Admin</p>
+    <div className="min-h-screen bg-slate-50">
+      <AdminHeader title="Markets" subtitle="Manage all prediction markets" />
+
+      <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+        {/* Filters and Search */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex-1">
+            <div className="relative">
+              <span className="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+              <input
+                type="text"
+                placeholder="Search markets..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-ton-primary focus:ring-2 focus:ring-ton-primary/20 outline-none transition-all"
+              />
+            </div>
+          </div>
+          <div className="bg-white border border-slate-200 p-1 rounded-xl flex items-center">
+            <button
+              type="button"
+              onClick={() => setFilter("active")}
+              className={`px-6 py-2 rounded-lg font-semibold text-sm transition-all ${
+                filter === "active"
+                  ? "bg-gradient-to-r from-ton-primary to-ton-cyan text-white shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Active
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilter("resolved")}
+              className={`px-6 py-2 rounded-lg font-semibold text-sm transition-all ${
+                filter === "resolved"
+                  ? "bg-gradient-to-r from-ton-primary to-ton-cyan text-white shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Resolved
+            </button>
           </div>
         </div>
-      </header>
 
-      <main className="p-5 pt-24 pb-36">
-        <div className="bg-white/5 p-1 rounded-2xl mb-8 flex items-center">
-          <button
-            type="button"
-            onClick={() => setFilter("active")}
-            className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-colors ${
-              filter === "active"
-                ? "bg-primary text-white shadow-lg shadow-primary/20"
-                : "text-slate-400"
-            }`}
-          >
-            Active
-          </button>
-          <button
-            type="button"
-            onClick={() => setFilter("resolved")}
-            className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-colors ${
-              filter === "resolved"
-                ? "bg-primary text-white shadow-lg shadow-primary/20"
-                : "text-slate-400"
-            }`}
-          >
-            Resolved
-          </button>
-        </div>
-
-        <div className="space-y-4">
+        {/* Markets List */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Active market 1 */}
           {filter === "active" && (
-          <div className="glass p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all">
             <div className="flex justify-between items-start mb-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-mono font-semibold text-ton-primary bg-ton-primary/10 px-2 py-1 rounded-lg">
+                    #TON-842-X
+                  </span>
+                  <span className="text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700">
+                    ACTIVE
+                  </span>
+                </div>
+                <h3 className="font-bold text-lg text-slate-900 leading-snug">
+                  Will TON hit $10 before Jan 2025?
+                </h3>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4 mb-5 pt-4 border-t border-slate-100">
               <div>
-                <span className="text-[10px] font-mono text-primary/60 mb-1 block">ID: #TON-842-X</span>
-                <h3 className="font-semibold text-base">Will TON hit $10 before Jan 2025?</h3>
+                <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                  <span className="material-icons-round text-sm">timer</span>
+                  Resolution In
+                </p>
+                <p className="text-sm font-bold text-slate-900 font-mono">14d : 22h : 10m</p>
               </div>
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/30">
-                ACTIVE
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-400 uppercase font-medium">Resolution In</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-icons-round text-sm text-primary">timer</span>
-                  <span className="text-sm font-bold font-mono">14d : 22h : 10m</span>
-                </div>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-400 uppercase font-medium">Total Volume</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-icons-round text-sm text-primary">account_balance_wallet</span>
-                  <span className="text-sm font-bold">128,402 TON</span>
-                </div>
+              <div>
+                <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                  <span className="material-icons-round text-sm">account_balance_wallet</span>
+                  Total Volume
+                </p>
+                <p className="text-sm font-bold text-slate-900">128,402 TON</p>
               </div>
             </div>
+            
             <Link
               href="/admin/markets/842"
-              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl font-bold text-sm transition-colors border border-slate-200 flex items-center justify-center gap-2"
+              className="w-full bg-slate-50 hover:bg-gradient-to-r hover:from-ton-primary hover:to-ton-cyan border border-slate-200 hover:border-transparent text-slate-900 hover:text-white py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2"
             >
               View Details
-              <span className="material-icons-round text-sm">arrow_forward</span>
+              <span className="material-icons-round text-base">arrow_forward</span>
             </Link>
           </div>
           )}
 
           {/* Active market 2 */}
           {filter === "active" && (
-          <div className="glass p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all">
             <div className="flex justify-between items-start mb-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-mono font-semibold text-ton-primary bg-ton-primary/10 px-2 py-1 rounded-lg">
+                    #ETH-391-B
+                  </span>
+                  <span className="text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700">
+                    ACTIVE
+                  </span>
+                </div>
+                <h3 className="font-bold text-lg text-slate-900 leading-snug">
+                  ETH above $4k by EOY?
+                </h3>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4 mb-5 pt-4 border-t border-slate-100">
               <div>
-                <span className="text-[10px] font-mono text-primary/60 mb-1 block">ID: #ETH-391-B</span>
-                <h3 className="font-semibold text-base">ETH/BTC Ratio &gt; 0.05 (Monthly)</h3>
+                <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                  <span className="material-icons-round text-sm">timer</span>
+                  Resolution In
+                </p>
+                <p className="text-sm font-bold text-slate-900 font-mono">8d : 14h : 32m</p>
               </div>
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/30">
-                ACTIVE
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-400 uppercase font-medium">Resolution In</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-icons-round text-sm text-primary">timer</span>
-                  <span className="text-sm font-bold font-mono">03d : 08h : 45m</span>
-                </div>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-400 uppercase font-medium">Total Volume</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="material-icons-round text-sm text-primary">account_balance_wallet</span>
-                  <span className="text-sm font-bold">45,190 TON</span>
-                </div>
+              <div>
+                <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                  <span className="material-icons-round text-sm">account_balance_wallet</span>
+                  Total Volume
+                </p>
+                <p className="text-sm font-bold text-slate-900">95,204 TON</p>
               </div>
             </div>
+            
             <Link
               href="/admin/markets/391"
-              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl font-bold text-sm transition-colors border border-slate-200 flex items-center justify-center gap-2"
+              className="w-full bg-slate-50 hover:bg-gradient-to-r hover:from-ton-primary hover:to-ton-cyan border border-slate-200 hover:border-transparent text-slate-900 hover:text-white py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2"
             >
               View Details
-              <span className="material-icons-round text-sm">arrow_forward</span>
+              <span className="material-icons-round text-base">arrow_forward</span>
             </Link>
           </div>
           )}
 
-          {/* Resolved market */}
+          {/* Resolved markets */}
           {filter === "resolved" && (
-          <div className="glass opacity-70 p-5 rounded-[24px] border border-slate-200 relative overflow-hidden">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <span className="text-[10px] font-mono text-slate-500 mb-1 block">ID: #BTC-112-S</span>
-                <h3 className="font-semibold text-base text-slate-300">Bitcoin Price &gt; $65,000 Friday</h3>
-              </div>
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-slate-500/20 text-slate-400 border border-slate-500/30">
-                RESOLVED
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-500 uppercase font-medium">Status</p>
-                <div className="flex items-center gap-1.5 text-slate-400">
-                  <span className="material-icons-round text-sm">check_circle</span>
-                  <span className="text-sm font-bold">Finalized</span>
+          <>
+            <div className="bg-white border border-slate-200 rounded-xl p-6 opacity-70 hover:opacity-100 transition-all">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-mono font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded-lg">
+                      #BTC-112-S
+                    </span>
+                    <span className="text-xs font-semibold px-2 py-1 rounded-lg bg-slate-100 text-slate-600">
+                      RESOLVED
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-lg text-slate-700 leading-snug">
+                    Bitcoin Price &gt; $65,000 Friday
+                  </h3>
                 </div>
               </div>
-              <div className="space-y-1">
-                <p className="text-[10px] text-slate-500 uppercase font-medium">Final Volume</p>
-                <div className="flex items-center gap-1.5 text-slate-400">
-                  <span className="material-icons-round text-sm">account_balance_wallet</span>
-                  <span className="text-sm font-bold">92,400 TON</span>
+              
+              <div className="grid grid-cols-2 gap-4 mb-5 pt-4 border-t border-slate-100">
+                <div>
+                  <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                    <span className="material-icons-round text-sm">check_circle</span>
+                    Status
+                  </p>
+                  <p className="text-sm font-bold text-slate-700">Finalized</p>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
+                    <span className="material-icons-round text-sm">account_balance_wallet</span>
+                    Final Volume
+                  </p>
+                  <p className="text-sm font-bold text-slate-700">92,400 TON</p>
                 </div>
               </div>
+              
+              <Link
+                href="/admin/markets/112/claims"
+                className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 border border-slate-200"
+              >
+                View History
+                <span className="material-icons-round text-base">arrow_forward</span>
+              </Link>
             </div>
-            <Link
-              href="/admin/markets/112/claims"
-              className="w-full bg-slate-100 text-slate-500 py-3 rounded-xl font-bold text-sm border border-slate-200 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
-            >
-              View History
-            </Link>
-          </div>
+          </>
           )}
         </div>
-      </main>
-
-      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-3 z-40">
-        <Link
-          href="/admin/deploy"
-          className="bg-primary text-white py-3 px-6 rounded-full font-bold text-sm shadow-xl shadow-primary/20 flex items-center gap-2 whitespace-nowrap active:scale-95 transition-transform"
-        >
-          <span className="material-icons-round">add</span>
-          Deploy New Market
-        </Link>
       </div>
-
-      <AdminNav activeTab="markets" />
     </div>
   );
 }

@@ -1,10 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getFirebaseAuth } from "@/lib/firebase";
-import { AdminNav } from "../components/AdminNav";
-import { signOut } from "firebase/auth";
-import { WalletButton } from "@/app/components/WalletButton";
+import { AdminHeader } from "../components/AdminHeader";
 
 const recentDeployments = [
   { id: "10284", time: "2 mins ago", address: "EQB8...xL92" },
@@ -19,111 +16,89 @@ const recentResolutions = [
 ];
 
 export default function AdminHistoryPage() {
-  async function handleSignOut() {
-    const auth = getFirebaseAuth();
-    if (auth) {
-      await signOut(auth);
-      window.location.href = "/admin/login";
-    }
-  }
-
   return (
-    <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex flex-col gap-2 bg-background-dark/80 backdrop-blur-md border-b border-slate-200">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="material-icons-round text-white text-lg">history</span>
-            </div>
-            <div>
-              <h1 className="font-bold text-base tracking-tight leading-none">History</h1>
-              <p className="text-[10px] text-slate-400 font-mono mt-1">Deployments & resolutions</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <WalletButton />
-            <button
-              type="button"
-              onClick={handleSignOut}
-              className="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-400 hover:text-primary transition-colors"
-              title="Sign out"
-            >
-              <span className="material-icons-round text-lg">logout</span>
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-slate-50">
+      <AdminHeader title="History" subtitle="Deployments and resolutions timeline" />
 
-      <main className="px-5 pt-24 pb-32">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary/60">Recent Deployments</h2>
-          <Link
-            href="/admin/factory"
-            className="text-[10px] font-bold text-primary hover:underline"
-          >
-            Full log
-          </Link>
-        </div>
-        <div className="space-y-3 mb-8">
-          {recentDeployments.map((entry, i) => (
-            <div
-              key={entry.id}
-              className="glass rounded-2xl p-4 border border-slate-200 relative overflow-hidden"
+      <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8">
+        {/* Recent Deployments */}
+        <div>
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-sm font-bold text-slate-500 uppercase tracking-wider">Recent Deployments</h2>
+            <Link
+              href="/admin/factory"
+              className="text-sm font-semibold text-ton-primary hover:text-ton-cyan transition-colors"
             >
-              {i === 0 && (
-                <div className="absolute right-0 top-0 h-full w-1 bg-primary/20" />
-              )}
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-primary">#{entry.id}</span>
-                  <span className="w-1 h-1 bg-white/20 rounded-full" />
-                  <span className="text-[10px] text-slate-400 font-medium uppercase">{entry.time}</span>
-                </div>
-                <span className="material-icons-round text-xs text-primary/40">rocket_launch</span>
-              </div>
-              <code className="text-[11px] font-mono text-slate-300 block truncate">{entry.address}</code>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary/60">Recent Resolutions</h2>
-          <Link
-            href="/admin/markets"
-            className="text-[10px] font-bold text-primary hover:underline"
-          >
-            All markets
-          </Link>
-        </div>
-        <div className="space-y-3">
-          {recentResolutions.map((entry, i) => (
-            <div
-              key={entry.id}
-              className="glass rounded-2xl p-4 border border-slate-200 relative overflow-hidden"
-            >
-              {i === 0 && (
-                <div className="absolute right-0 top-0 h-full w-1 bg-primary/20" />
-              )}
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-[10px] text-slate-400 font-medium uppercase">{entry.time}</span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/20 text-primary shrink-0">
-                  {entry.outcome}
-                </span>
-              </div>
-              <p className="text-sm font-medium text-slate-900 leading-tight">{entry.market}</p>
-              <Link
-                href={`/admin/markets/${entry.id}`}
-                className="inline-flex items-center gap-1 mt-2 text-[10px] font-bold text-primary hover:underline"
+              View full log →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {recentDeployments.map((entry, i) => (
+              <div
+                key={entry.id}
+                className="bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-all relative"
               >
-                View details
-                <span className="material-icons-round text-xs">arrow_forward</span>
-              </Link>
-            </div>
-          ))}
+                {i === 0 && (
+                  <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-ton-primary to-ton-cyan rounded-r-xl" />
+                )}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-bold text-ton-primary">#{entry.id}</span>
+                    {i === 0 && (
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">NEW</span>
+                    )}
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{entry.time}</span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="material-icons-round text-lg text-ton-primary/40">rocket_launch</span>
+                </div>
+                <code className="text-xs font-mono text-slate-600 block truncate bg-slate-50 px-2 py-1 rounded">{entry.address}</code>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
 
-      <AdminNav activeTab="history" />
+        {/* Recent Resolutions */}
+        <div>
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-sm font-bold text-slate-500 uppercase tracking-wider">Recent Resolutions</h2>
+            <Link
+              href="/admin/markets"
+              className="text-sm font-semibold text-ton-primary hover:text-ton-cyan transition-colors"
+            >
+              View all markets →
+            </Link>
+          </div>
+          <div className="space-y-4">
+            {recentResolutions.map((entry) => (
+              <div
+                key={entry.id}
+                className="bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <span className="text-xs text-slate-500 font-medium">{entry.time}</span>
+                  <span className={`text-xs font-semibold px-3 py-1 rounded-lg ${
+                    entry.outcome === "Yes" 
+                      ? "bg-emerald-50 text-emerald-700" 
+                      : "bg-red-50 text-red-700"
+                  }`}>
+                    {entry.outcome}
+                  </span>
+                </div>
+                <p className="text-base font-semibold text-slate-900 mb-3 leading-snug">{entry.market}</p>
+                <Link
+                  href={`/admin/markets/${entry.id}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-ton-primary hover:text-ton-cyan transition-colors"
+                >
+                  View details
+                  <span className="material-icons-round text-base">arrow_forward</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
