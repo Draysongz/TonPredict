@@ -4,6 +4,37 @@ import { useState, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AdminHeader } from "../../components/AdminHeader";
+import { useGetMarket, useResolveMarket } from "@/lib/api";
+
+// Helper function to truncate address
+function truncateAddress(address: string, start = 6, end = 4): string {
+  if (address.length <= start + end) return address;
+  return `${address.slice(0, start)}...${address.slice(-end)}`;
+}
+
+// Helper function to format time remaining
+function formatTimeRemaining(closingTime: Date): string {
+  const now = new Date();
+  const diff = new Date(closingTime).getTime() - now.getTime();
+  
+  if (diff <= 0) return "Ended";
+  
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  
+  return `${days}d ${hours}h ${minutes}m`;
+}
+
+// Helper function to calculate duration from closing time
+function calculateDuration(closingTime: Date, createdAt: Date): string {
+  const diff = new Date(closingTime).getTime() - new Date(createdAt).getTime();
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  
+  if (hours < 24) return `${hours} Hours`;
+  const days = Math.floor(hours / 24);
+  return `${days} Day${days > 1 ? 's' : ''}`;
+}
 
 export default function AdminMarketDetailPage({
   params,
@@ -12,15 +43,71 @@ export default function AdminMarketDetailPage({
 }) {
   const router = useRouter();
   const { id } = use(params);
-  const [outcome, setOutcome] = useState<"yes" | "no">("yes");
+  const [selectedOutcome, setSelectedOutcome] = useState<number>(0);
+  const [isResolving, setIsResolving] = useState(false);
 
-  const isEligibleToResolve = true; // e.g. resolution timer expired
+  // Fetch market data
+  const { data: marketResponse, isLoading, error } = useGetMarket(id);
+  const { mutateAsync: resolveMarket } = useResolveMarket();
+  
+  const market = marketResponse?.data;
+
+  // Check if eligible to resolve (closing time has passed and not already resolved)
+  const isEligibleToResolve = market ? 
+    new Date(market.closingTime).getTime() < Date.now() && !market.resolved : 
+    false;
+
+  const handleResolve = async () => {
+    if (!market) return;
+    
+    setIsResolving(true);
+    try {
+      await resolveMarket({ id: market._id, winningOutcome: selectedOutcome });
+      alert(`Market resolved successfully! Winner: ${market.outcomes[selectedOutcome]}`);
+    } catch (error) {
+      console.error("Failed to resolve market:", error);
+      alert("Failed to resolve market. Please try again.");
+    } finally {
+      setIsResolving(false);
+    }
+  };
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-ton-primary"></div>
+          <p className="mt-4 text-slate-600">Loading market details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !market) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="bg-white border border-slate-200 rounded-xl p-8 text-center max-w-md">
+          <span className="material-icons-round text-red-500 text-6xl mb-4">error</span>
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">Market Not Found</h2>
+          <p className="text-slate-600 mb-6">The market you're looking for doesn't exist or has been removed.</p>
+          <button
+            onClick={() => router.push('/admin/markets')}
+            className="px-6 py-3 bg-ton-primary text-white rounded-xl font-semibold hover:bg-ton-primary/90 transition-colors"
+          >
+            Back to Markets
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50">
       <AdminHeader 
-        title={`Market #${id}`} 
-        subtitle="EQ...f4K9"
+        title={market.question} 
+        subtitle={truncateAddress(market.address)}
         action={
           <button
             type="button"
@@ -43,26 +130,76 @@ export default function AdminMarketDetailPage({
               <div className="flex items-start justify-between pb-4 border-b border-slate-200">
                 <div className="flex-1">
                   <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Market ID</span>
-                  <div className="text-lg font-bold text-slate-900 mt-1">84920-XQ</div>
+                  <div className="text-lg font-bold text-slate-900 mt-1">#{market.contractMarketId}</div>
                 </div>
-                <div className="px-3 py-1 rounded-lg bg-blue-50 border border-blue-200">
-                  <span className="text-xs font-bold text-blue-700">Active</span>
+                <div className={`px-3 py-1 rounded-lg ${
+                  market.resolved 
+                    ? 'bg-slate-100 border border-slate-200' 
+                    : 'bg-emerald-50 border border-emerald-200'
+                }`}>
+                  <span className={`text-xs font-bold ${
+                    market.resolved ? 'text-slate-600' : 'text-emerald-700'
+                  }`}>
+                    {market.resolved ? 'Resolved' : 'Active'}
+                  </span>
                 </div>
               </div>
               
               <div className="pb-4 border-b border-slate-200">
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Contract Address</span>
                 <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200 mt-2">
-                  <code className="text-sm font-mono text-slate-700">EQD4...9jS2</code>
-                  <button type="button" className="text-blue-500 hover:text-blue-600 transition-colors">
+                  <code className="text-sm font-mono text-slate-700">{truncateAddress(market.address, 8, 6)}</code>
+                  <button 
+                    type="button" 
+                    className="text-blue-500 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      navigator.clipboard.writeText(market.address);
+                      alert('Address copied!');
+                    }}
+                  >
                     <span className="material-icons-round text-base">content_copy</span>
                   </button>
                 </div>
               </div>
               
-              <div>
+              <div className="pb-4 border-b border-slate-200">
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Resolution Duration</span>
-                <div className="text-lg font-bold text-slate-900 mt-1">24 Hours</div>
+                <div className="text-lg font-bold text-slate-900 mt-1">
+                  {calculateDuration(market.closingTime, market.createdAt)}
+                </div>
+              </div>
+              
+              <div className="pb-4 border-b border-slate-200">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Closing Time</span>
+                <div className="text-lg font-bold text-slate-900 mt-1">
+                  {new Date(market.closingTime).toLocaleString()}
+                </div>
+                {!market.resolved && (
+                  <div className="text-sm text-slate-600 mt-1">
+                    {formatTimeRemaining(market.closingTime)} remaining
+                  </div>
+                )}
+              </div>
+              
+              <div>
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Outcomes</span>
+                <div className="flex gap-2 mt-2">
+                  {market.outcomes.map((outcome, index) => (
+                    <span 
+                      key={index}
+                      className={`px-3 py-1 rounded-lg text-sm font-semibold ${
+                        market.resolved && market.winningOutcome === index
+                          ? 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+                          : 'bg-slate-100 text-slate-700'
+                      }`}
+                    >
+                      {outcome}
+                      {market.resolved && market.winningOutcome === index && (
+                        <span className="material-icons-round text-sm ml-1 align-middle">check_circle</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -72,23 +209,37 @@ export default function AdminMarketDetailPage({
             <h2 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">Status</h2>
             <div className="bg-white border border-slate-200 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
-                  <span className="material-icons-round text-blue-500 text-2xl">monitoring</span>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                  market.resolved 
+                    ? 'bg-linear-to-br from-slate-50 to-slate-100' 
+                    : 'bg-linear-to-br from-blue-50 to-cyan-50'
+                }`}>
+                  <span className={`material-icons-round text-2xl ${
+                    market.resolved ? 'text-slate-500' : 'text-blue-500'
+                  }`}>
+                    {market.resolved ? 'check_circle' : 'monitoring'}
+                  </span>
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-slate-500">Market State</div>
-                  <div className="text-xl font-bold text-slate-900">Active</div>
+                  <div className="text-xl font-bold text-slate-900">
+                    {market.resolved ? 'Resolved' : 'Active'}
+                  </div>
                 </div>
               </div>
               
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                  <span className="text-xs font-semibold text-slate-600">Total Trades</span>
-                  <span className="text-lg font-bold text-slate-900">2,847</span>
+                  <span className="text-xs font-semibold text-slate-600">Liquidity (b)</span>
+                  <span className="text-lg font-bold text-slate-900">{market.bParam}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                  <span className="text-xs font-semibold text-slate-600">Unique Traders</span>
-                  <span className="text-lg font-bold text-slate-900">1,204</span>
+                  <span className="text-xs font-semibold text-slate-600">q(Yes)</span>
+                  <span className="text-lg font-bold text-slate-900">{Number(market.qYes).toFixed(2)}</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                  <span className="text-xs font-semibold text-slate-600">q(No)</span>
+                  <span className="text-lg font-bold text-slate-900">{Number(market.qNo).toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -102,36 +253,45 @@ export default function AdminMarketDetailPage({
             <div className="bg-white border border-slate-200 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">YES Price</span>
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">YES Probability</span>
               </div>
-              <div className="text-3xl font-bold text-emerald-600">$0.64</div>
-              <div className="text-xs text-slate-500 mt-1">+4.2% today</div>
+              <div className="text-3xl font-bold text-emerald-600">
+                {market.impliedProbability ? `${(market.impliedProbability * 100).toFixed(1)}%` : '50.0%'}
+              </div>
+              <div className="text-xs text-slate-500 mt-1">Current odds</div>
             </div>
             
             <div className="bg-white border border-slate-200 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-rose-500 rounded-full"></div>
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">NO Price</span>
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">NO Probability</span>
               </div>
-              <div className="text-3xl font-bold text-rose-600">$0.36</div>
-              <div className="text-xs text-slate-500 mt-1">-4.2% today</div>
+              <div className="text-3xl font-bold text-rose-600">
+                {market.impliedProbability ? `${((1 - market.impliedProbability) * 100).toFixed(1)}%` : '50.0%'}
+              </div>
+              <div className="text-xs text-slate-500 mt-1">Current odds</div>
             </div>
             
             <div className="bg-white border border-slate-200 rounded-xl p-5">
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Total Shares</span>
-              <div className="text-3xl font-bold text-slate-900 mt-2">1.42M</div>
-              <div className="text-xs text-slate-500 mt-1">TON issued</div>
+              <div className="text-3xl font-bold text-slate-900 mt-2">
+                {market.statistics?.totalShares ? Number(market.statistics.totalShares).toLocaleString() : '0'}
+              </div>
+              <div className="text-xs text-slate-500 mt-1">Shares issued</div>
             </div>
             
             <div className="bg-white border border-slate-200 rounded-xl p-5">
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Total Volume</span>
-              <div className="text-3xl font-bold text-slate-900 mt-2">42.8K</div>
+              <div className="text-3xl font-bold text-slate-900 mt-2">
+                {market.statistics?.totalVolume ? Number(market.statistics.totalVolume).toLocaleString() : '0'}
+              </div>
               <div className="text-xs text-slate-500 mt-1">TON traded</div>
             </div>
           </div>
         </div>
 
         {/* Resolve Market - only when eligible */}
+        {!market.resolved && (
         <div>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-bold text-slate-500 uppercase tracking-wider">Resolve Market</h2>
@@ -160,55 +320,33 @@ export default function AdminMarketDetailPage({
             {isEligibleToResolve && (
               <>
                 <div className="space-y-3 mb-6">
-                  <label
-                    className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all hover:shadow-md ${
-                      outcome === "yes" ? "border-emerald-500 bg-emerald-50" : "border-slate-200 bg-white"
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                        outcome === "yes" ? "border-emerald-500 bg-emerald-500" : "border-slate-300"
-                      }`}>
-                        {outcome === "yes" && <span className="material-icons-round text-white text-sm">check</span>}
+                  {market.outcomes.map((outcomeText, index) => (
+                    <label
+                      key={index}
+                      className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all hover:shadow-md ${
+                        selectedOutcome === index ? "border-emerald-500 bg-emerald-50" : "border-slate-200 bg-white"
+                      }`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                          selectedOutcome === index ? "border-emerald-500 bg-emerald-500" : "border-slate-300"
+                        }`}>
+                          {selectedOutcome === index && <span className="material-icons-round text-white text-sm">check</span>}
+                        </div>
+                        <div>
+                          <span className="font-bold text-lg text-slate-900">{outcomeText}</span>
+                          <div className="text-xs text-slate-500 mt-0.5">Market resolves to {outcomeText} outcome</div>
+                        </div>
                       </div>
-                      <div>
-                        <span className="font-bold text-lg text-slate-900">YES</span>
-                        <div className="text-xs text-slate-500 mt-0.5">Market resolves to YES outcome</div>
-                      </div>
-                    </div>
-                    <input
-                      type="radio"
-                      name="outcome"
-                      checked={outcome === "yes"}
-                      onChange={() => setOutcome("yes")}
-                      className="hidden"
-                    />
-                  </label>
-                  
-                  <label
-                    className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all hover:shadow-md ${
-                      outcome === "no" ? "border-rose-500 bg-rose-50" : "border-slate-200 bg-white"
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                        outcome === "no" ? "border-rose-500 bg-rose-500" : "border-slate-300"
-                      }`}>
-                        {outcome === "no" && <span className="material-icons-round text-white text-sm">check</span>}
-                      </div>
-                      <div>
-                        <span className="font-bold text-lg text-slate-900">NO</span>
-                        <div className="text-xs text-slate-500 mt-0.5">Market resolves to NO outcome</div>
-                      </div>
-                    </div>
-                    <input
-                      type="radio"
-                      name="outcome"
-                      checked={outcome === "no"}
-                      onChange={() => setOutcome("no")}
-                      className="hidden"
-                    />
-                  </label>
+                      <input
+                        type="radio"
+                        name="outcome"
+                        checked={selectedOutcome === index}
+                        onChange={() => setSelectedOutcome(index)}
+                        className="hidden"
+                      />
+                    </label>
+                  ))}
                 </div>
                 
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
@@ -223,10 +361,21 @@ export default function AdminMarketDetailPage({
                 
                 <button
                   type="button"
-                  className="w-full bg-linear-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-bold text-base hover:shadow-lg transition-all flex items-center justify-center gap-2 mb-3"
+                  onClick={handleResolve}
+                  disabled={isResolving}
+                  className="w-full bg-linear-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-bold text-base hover:shadow-lg transition-all flex items-center justify-center gap-2 mb-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="material-icons-round">check_circle</span>
-                  Finalize Resolution
+                  {isResolving ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      Resolving...
+                    </>
+                  ) : (
+                    <>
+                      <span className="material-icons-round">check_circle</span>
+                      Finalize Resolution
+                    </>
+                  )}
                 </button>
                 
                 <Link
@@ -250,6 +399,7 @@ export default function AdminMarketDetailPage({
             )}
           </div>
         </div>
+        )}
       </div>
     </div>
   );

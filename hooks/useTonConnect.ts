@@ -5,7 +5,7 @@ export function useTonConnect(): {
   sender: Sender;
   connected: boolean;
   userAddress: string;
-  tonConnect: any;
+ 
 } {
   const [tonConnectUI] = useTonConnectUI();
   const TONAddress = useTonAddress(true);
@@ -31,6 +31,6 @@ export function useTonConnect(): {
     sender,
     connected: tonConnectUI?.connected,
     userAddress: TONAddress,
-    tonConnect
+   
   };
 }

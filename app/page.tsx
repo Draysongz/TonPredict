@@ -3,8 +3,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WalletButton } from "./components/WalletButton";
+import { useGetMarkets } from "@/lib/api";
+
+// Helper function to format time remaining
+function formatTimeRemaining(closingTime: Date): string {
+  const now = new Date();
+  const diff = new Date(closingTime).getTime() - now.getTime();
+  
+  if (diff <= 0) return "Ended";
+  
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  
+  if (days > 0) return `${days}d left`;
+  return `${hours}h left`;
+}
 
 export default function Home() {
+  const { data: marketsResponse, isLoading } = useGetMarkets();
+  const markets = marketsResponse?.data || [];
+  
+  // Get active markets only
+  const activeMarkets = markets.filter(m => !m.resolved);
   return (
     <div className="bg-background-dark text-slate-900 min-h-screen overflow-x-hidden gradient-bg">
       {/* Header */}
@@ -27,34 +47,58 @@ export default function Home() {
         {/* Trending Now Section */}
         <section className="mt-4">
           <div className="px-5 mb-3 flex items-center justify-between">
-            <h2 className="ton-label text-sm uppercase tracking-widest text-primary/80">Trending Now</h2>
-            <span className="text-xs text-slate-400">View All</span>
+            <h2 className="ton-label text-sm uppercase tracking-widest text-primary/80">Active Markets</h2>
+            <span className="text-xs text-slate-400">{activeMarkets.length} Live</span>
           </div>
-          <div className="flex overflow-x-auto gap-4 px-5 hide-scrollbar py-2">
-            <Link href="/market/1" className="glass min-w-[280px] p-5 rounded-[24px] border-l-4 border-l-primary relative overflow-hidden block">
-              <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-white">CRYPTO</span>
-                <span className="text-[10px] text-slate-400">$1.2M Vol</span>
+          {isLoading ? (
+            <div className="flex overflow-x-auto gap-4 px-5 hide-scrollbar py-2">
+              <div className="glass min-w-[280px] p-5 rounded-3xl animate-pulse">
+                <div className="h-4 bg-slate-200 rounded w-20 mb-3"></div>
+                <div className="h-16 bg-slate-200 rounded mb-4"></div>
+                <div className="flex gap-3">
+                  <div className="flex-1 h-10 bg-slate-200 rounded-xl"></div>
+                  <div className="flex-1 h-10 bg-slate-200 rounded-xl"></div>
+                </div>
               </div>
-              <h3 className="font-semibold text-lg leading-tight mb-4">Will TON hit $10 before Jan 2025?</h3>
-              <div className="flex items-center justify-between gap-3" onClick={(e) => e.stopPropagation()}>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-sm">Yes $0.64</button>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-slate-100 py-2.5 rounded-xl font-bold text-sm">No $0.36</button>
-              </div>
-            </Link>
-            <Link href="/market/2" className="glass min-w-[280px] p-5 rounded-[24px] border-l-4 border-l-blue-400 relative overflow-hidden block">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-400 text-white uppercase">US Politics</span>
-                <span className="text-[10px] text-slate-400">$450K Vol</span>
-              </div>
-              <h3 className="font-semibold text-lg leading-tight mb-4">Who will win the next Debate?</h3>
-              <div className="flex items-center justify-between gap-3" onClick={(e) => e.stopPropagation()}>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 bg-white/10 py-2.5 rounded-xl font-bold text-sm">Candidate A</button>
-                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="flex-1 glass bg-slate-100 py-2.5 rounded-xl font-bold text-sm">Candidate B</button>
-              </div>
-            </Link>
-          </div>
+            </div>
+          ) : activeMarkets.length === 0 ? (
+            <div className="px-5 py-12 text-center">
+              <span className="material-icons-round text-6xl text-slate-300 mb-4 block">pending_actions</span>
+              <p className="text-slate-500 font-medium">No active markets yet</p>
+              <p className="text-slate-400 text-sm mt-1">Check back soon for new prediction markets!</p>
+            </div>
+          ) : (
+            <div className="flex overflow-x-auto gap-4 px-5 hide-scrollbar py-2">
+              {activeMarkets.slice(0, 5).map((market) => (
+                <Link 
+                  key={market._id} 
+                  href={`/market/${market._id}`} 
+                  className="glass min-w-[280px] p-5 rounded-3xl border-l-4 border-l-primary relative overflow-hidden block"
+                >
+                  <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-white uppercase">Market #{market.contractMarketId}</span>
+                    <span className="text-[10px] text-slate-400">{formatTimeRemaining(market.closingTime)}</span>
+                  </div>
+                  <h3 className="font-semibold text-lg leading-tight mb-4 line-clamp-2">{market.question}</h3>
+                  <div className="flex items-center justify-between gap-3" onClick={(e) => e.stopPropagation()}>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} 
+                      className="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-sm"
+                    >
+                      {market.outcomes[0]} {market.impliedProbability ? `${(market.impliedProbability * 100).toFixed(0)}%` : '50%'}
+                    </button>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} 
+                      className="flex-1 glass bg-slate-100 py-2.5 rounded-xl font-bold text-sm"
+                    >
+                      {market.outcomes[1]} {market.impliedProbability ? `${((1 - market.impliedProbability) * 100).toFixed(0)}%` : '50%'}
+                    </button>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Category Icons Section */}
